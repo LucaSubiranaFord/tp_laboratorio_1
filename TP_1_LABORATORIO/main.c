@@ -11,11 +11,13 @@ int main()
     int flagOperando1 = 0;
     int flagOperando2 = 0;
     int flagDivisor = 0;
+    float operandoMenu = 0;
+    float operandoMenu2 = 0;
 
     while(seguir=='s')
     {
-        printf("\n1- Ingresar 1er operando (A=x)\n");
-        printf("2- Ingresar 2do operando (B=y)\n");
+        printf("\n1- Ingresar 1er operando (A=%f)\n", operandoMenu);
+        printf("2- Ingresar 2do operando (B=%f)\n", operandoMenu2);
         printf("3- Calcular la suma (A+B)\n");
         printf("4- Calcular la resta (A-B)\n");
         printf("5- Calcular la division (A/B)\n");
@@ -30,26 +32,28 @@ int main()
         {
         case 1:
             primerOperando = ingresoFloat1();
+            operandoMenu = primerOperando;
             flagOperando1 = 1;
             break;
         case 2:
             segundoOperando = ingresoFloat2();
+            operandoMenu2 = segundoOperando;
             flagOperando2 = 1;
             break;
         case 3:
-           verificacion(flagOperando1, flagOperando2, suma(primerOperando, segundoOperando));
+           suma(primerOperando, segundoOperando,flagOperando1, flagOperando2);
             break;
         case 4:
-            verificacion(flagOperando1, flagOperando2, resta(primerOperando, segundoOperando));
+            resta(primerOperando, segundoOperando,flagOperando1, flagOperando2);
             break;
         case 5:
-             verificacion(flagOperando1, flagOperando2, dividir(primerOperando, segundoOperando));
+             dividir(primerOperando, segundoOperando,flagOperando1, flagOperando2);
             break;
         case 6:
-          verificacion(flagOperando1, flagOperando2, multiplicar(primerOperando, segundoOperando));
+          multiplicar(primerOperando, segundoOperando,flagOperando1, flagOperando2);
             break;
         case 7:
-            verificacion(flagOperando1, flagOperando2, factorial(primerOperando, segundoOperando, flagOperando1, flagOperando2));
+            factorial(primerOperando, segundoOperando, flagOperando1, flagOperando2);
             break;
         case 8:
            mostrarOperaciones(primerOperando, segundoOperando, flagOperando1, flagOperando2, flagDivisor);
