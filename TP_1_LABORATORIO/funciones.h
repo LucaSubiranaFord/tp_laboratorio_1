@@ -3,12 +3,13 @@
 
 float ingresoFloat1();
 float ingresoFloat2();
-suma(float, float, int, int);
-resta(float, float, int, int);
-multiplicar(float, float, int, int);
-dividir(float, float, int, int);
-factorial(float, float, int, int);
-float mostrarOperaciones(float, float, int, int, int);
+float suma(float, float);
+float resta(float, float);
+float multiplicar(float, float);
+dividir(float, float);
+float factorial(float, float, int, int);
+verificacionIngreso(float, float, float);
+float mostrarOperaciones(float, float, int, int);
 
 
 /** \brief Ingreso del primer parametro
@@ -19,7 +20,7 @@ float mostrarOperaciones(float, float, int, int, int);
 float ingresoFloat1()
 {
     float x;
-    printf("\nIngrese el primer operando: \n");
+    printf("\nIngrese el primer operando: ");
     scanf("%f", &x);
     return x;
 }
@@ -34,7 +35,7 @@ float ingresoFloat1()
 float ingresoFloat2()
 {
     float x;
-    printf("\nIngrese el segundo operando: \n");
+    printf("\nIngrese el segundo operando: ");
     scanf("%f", &x);
     return x;
 }
@@ -48,18 +49,10 @@ float ingresoFloat2()
  * \return resultado de la suma (float)
  *
  */
-suma(float x, float y, int z, int w)
+float suma(float x, float y)
 {
     float resultado = x+y;
-    if(z == 1 && w == 1)
-    {
-
-        printf("\nLa suma entre %f y %f, es : %f\n",x,y,resultado);
-    }else
-    {
-        printf("\nDebe ingresar ambos operandos para realizar la suma\n");
-    }
-
+    return resultado;
 }
 
 
@@ -71,17 +64,10 @@ suma(float x, float y, int z, int w)
  * \return resultado de la resta (float)
  *
  */
-resta(float x, float y, int z, int w)
+float resta(float x, float y)
 {
     float resultado = x-y;
-    if(z == 1 && w == 1)
-    {
-        printf("\nLa resta entre %f y %f, es : %f\n",x,y,resultado);
-    }else
-    {
-        printf("\nDebe ingresar ambos operandos para realizar la resta\n");
-    }
-
+    return resultado;
 }
 
 
@@ -93,17 +79,10 @@ resta(float x, float y, int z, int w)
  * \return resultado de la multiplicacion (float)
  *
  */
-multiplicar(float x, float y, int z, int w)
+float multiplicar(float x, float y)
 {
     float resultado = x*y;
-    if(z == 1 && w == 1)
-    {
-    printf("\nLa multiplicacion entre %f y %f, es : %f\n",x,y,resultado);
-    }else
-    {
-        printf("\nDebe ingresar ambos operandos para realizar la multiplicacion\n");
-    }
-
+    return resultado;
 }
 
 
@@ -115,29 +94,40 @@ multiplicar(float x, float y, int z, int w)
  * \return resultado de la division(float)
  *
  */
-dividir(float x, float y, int z, int w)
+dividir(float x, float y)
 {
     float resultado = x/y;
-
-    if(z == 1 && w == 1)
-    {
-
     if(y != 0)
     {
-    printf("\nLa division entre %f y %f, es : %f\n",x,y,resultado);
-
+        printf("La division entre %f y %f, es : %f",x,y,resultado);
     }else
     {
-      printf("\nEl divisor debe ser distinto de 0\n");
+        printf("El divisor debe ser distinto de 0");
     }
 
+}
 
-    }else
+
+
+/** \brief verifica que se hayan ingresado ambos operandos.
+ *
+ * \param bandera que afirma que el primer numero fue ingresado (int x)
+ * \param bandera que afirma que el segundo numero fue ingresado (int y)
+ * \param la funcion a realizar (float z)
+ *
+ */
+verificacion(float x, float y, float z)
+{
+    if( x == 1 && y == 1)
     {
-        printf("\nDebe ingresar ambos operandos para realizar la suma\n");
+        printf("\n%f\n", z);
     }
+    else
+    {
+        char mensaje[] = "Debe ingresar ambos operandos para realizar esta accion";
+        printf("\n%s\n", mensaje);
 
-
+    }
 }
 
 
@@ -151,19 +141,19 @@ dividir(float x, float y, int z, int w)
  * \param bandera que afirma que el segundo numero ingresado es distinto de 0 (int flagDivisor)
  *
  */
-float mostrarOperaciones(float primerOperando, float segundoOperando, int flagOperando1, int flagOperando2, int flagDivisor)
+float mostrarOperaciones(float primerOperando, float segundoOperando, int flagOperando1, int flagOperando2)
 {
     if(flagOperando1 == 1 && flagOperando2 == 1)
     {
-        suma(primerOperando, segundoOperando,flagOperando1, flagOperando2);
-        resta(primerOperando, segundoOperando,flagOperando1, flagOperando2);
-        dividir(primerOperando, segundoOperando,flagOperando1, flagOperando2);
-        multiplicar(primerOperando, segundoOperando,flagOperando1, flagOperando2);
-        factorial(primerOperando, segundoOperando, flagOperando1, flagOperando2);
+        verificacion(flagOperando1, flagOperando2, suma(primerOperando, segundoOperando));
+        verificacion(flagOperando1, flagOperando2, resta(primerOperando, segundoOperando));
+        verificacion(flagOperando1, flagOperando2, dividir(primerOperando, segundoOperando));
+        verificacion(flagOperando1, flagOperando2, multiplicar(primerOperando, segundoOperando));
+        verificacion(flagOperando1, flagOperando2, factorial(primerOperando, segundoOperando, flagOperando1, flagOperando2));
     }
     else
     {
-        printf("\nDebe ingresar ambos operandos para poder mostrar todas las operaciones\n");
+        printf("Debe ingresar ambos operandos para poder realizar esta accion");
         return 0;
     }
 
@@ -182,7 +172,7 @@ float mostrarOperaciones(float primerOperando, float segundoOperando, int flagOp
  *
  */
 
-factorial(float x, float y, int flagOperando1, int flagOperando2)
+float factorial(float x, float y, int flagOperando1, int flagOperando2)
 {
     int eleccion;
     int z;
@@ -192,7 +182,7 @@ factorial(float x, float y, int flagOperando1, int flagOperando2)
     {
         do
         {
-            printf("\nElija con que operando ya introducido desea realizar esta accion. Para elegir el primero ingrese 1, para elegir el segundo ingrese 2: \n");
+            printf("\nElija con que operando ya introducido desea realizar esta accion. Para elegir el primero ingrese 1, para elegir el segundo ingrese 2: ");
             scanf("%d",&eleccion);
         }
         while(eleccion != 1 && eleccion != 2);
@@ -204,7 +194,7 @@ factorial(float x, float y, int flagOperando1, int flagOperando2)
                 factorial = factorial * z;
             }
 
-            printf("\nel factorial de %f, es: %f\n", x, factorial);
+            return factorial;
         }
         else
         {
@@ -213,7 +203,7 @@ factorial(float x, float y, int flagOperando1, int flagOperando2)
                 factorial = factorial * z;
             }
 
-            printf("\nel factorial de %f, es: %f\n", y, factorial);
+            return factorial;
         }
 
     }
@@ -224,7 +214,7 @@ factorial(float x, float y, int flagOperando1, int flagOperando2)
             factorial = factorial * z;
         }
 
-        printf("\nel factorial de %f, es: %f\n", x, factorial);
+        return factorial;
     }
     else if(flagOperando1 == 0 && flagOperando2 == 1)
     {
@@ -233,7 +223,7 @@ factorial(float x, float y, int flagOperando1, int flagOperando2)
             factorial = factorial * z;
         }
 
-        printf("\nel factorial de %f, es: %f\n", y, factorial);
+        return factorial;
     }
 
 

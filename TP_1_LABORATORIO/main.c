@@ -10,7 +10,6 @@ int main()
     float segundoOperando;
     int flagOperando1 = 0;
     int flagOperando2 = 0;
-    int flagDivisor = 0;
     float operandoMenu = 0;
     float operandoMenu2 = 0;
 
@@ -41,22 +40,22 @@ int main()
             flagOperando2 = 1;
             break;
         case 3:
-           suma(primerOperando, segundoOperando,flagOperando1, flagOperando2);
+           verificacion(flagOperando1, flagOperando2, suma(primerOperando, segundoOperando));
             break;
         case 4:
-            resta(primerOperando, segundoOperando,flagOperando1, flagOperando2);
+            verificacion(flagOperando1, flagOperando2, resta(primerOperando, segundoOperando));
             break;
         case 5:
-             dividir(primerOperando, segundoOperando,flagOperando1, flagOperando2);
+             verificacion(flagOperando1, flagOperando2, dividir(primerOperando, segundoOperando));
             break;
         case 6:
-          multiplicar(primerOperando, segundoOperando,flagOperando1, flagOperando2);
+          verificacion(flagOperando1, flagOperando2, multiplicar(primerOperando, segundoOperando));
             break;
         case 7:
-            factorial(primerOperando, segundoOperando, flagOperando1, flagOperando2);
+            verificacion(flagOperando1, flagOperando2, factorial(primerOperando, segundoOperando, flagOperando1, flagOperando2));
             break;
         case 8:
-           mostrarOperaciones(primerOperando, segundoOperando, flagOperando1, flagOperando2, flagDivisor);
+           mostrarOperaciones(primerOperando, segundoOperando, flagOperando1, flagOperando2);
             break;
         case 9:
             seguir = 'n';
