@@ -6,8 +6,8 @@ int main()
 {
     char seguir='s';
     int opcion=0;
-    float primerOperando;
-    float segundoOperando;
+    int flagDivisor0;
+    float primerOperando, segundoOperando;
     int flagOperando1 = 0;
     int flagOperando2 = 0;
     float operandoMenu = 0;
@@ -38,6 +38,7 @@ int main()
             segundoOperando = ingresoFloat2();
             operandoMenu2 = segundoOperando;
             flagOperando2 = 1;
+            flagDivisor0 = verificacionDivisor(segundoOperando);
             break;
         case 3:
            verificacion(flagOperando1, flagOperando2, suma(primerOperando, segundoOperando));
@@ -46,16 +47,23 @@ int main()
             verificacion(flagOperando1, flagOperando2, resta(primerOperando, segundoOperando));
             break;
         case 5:
-             verificacion(flagOperando1, flagOperando2, dividir(primerOperando, segundoOperando));
+            if (flagDivisor0 == 1)
+            {
+              verificacion(flagOperando1, flagOperando2, dividir(primerOperando, segundoOperando, flagDivisor0));
+            }else
+            {
+                printf("\nEl divisor debe ser distinto de 0\n");
+            }
+
             break;
         case 6:
           verificacion(flagOperando1, flagOperando2, multiplicar(primerOperando, segundoOperando));
             break;
         case 7:
-            verificacion(flagOperando1, flagOperando2, factorial(primerOperando, segundoOperando, flagOperando1, flagOperando2));
+            factorial(primerOperando, segundoOperando, flagOperando1);
             break;
         case 8:
-           mostrarOperaciones(primerOperando, segundoOperando, flagOperando1, flagOperando2);
+           mostrarOperaciones(primerOperando, segundoOperando, flagOperando1, flagOperando2, flagDivisor0);
             break;
         case 9:
             seguir = 'n';
