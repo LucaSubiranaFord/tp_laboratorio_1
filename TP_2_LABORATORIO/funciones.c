@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#define P 20
 
 mostrarPersona(ePersona personas)
 {

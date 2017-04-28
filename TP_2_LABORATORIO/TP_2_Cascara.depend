@@ -21,3 +21,17 @@
 	<stdlib.h>
 	<string.h>
 
+1493390917 source:c:\users\alumno\desktop\tp_2_laboratorio\funciones.c
+	"funciones.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1493332667 c:\users\alumno\desktop\tp_2_laboratorio\funciones.h
+
+1493332667 source:c:\users\alumno\desktop\tp_2_laboratorio\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"funciones.h"
+
