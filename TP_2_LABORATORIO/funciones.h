@@ -1,21 +1,21 @@
 #ifndef FUNCIONES_H_INCLUDED
 #define FUNCIONES_H_INCLUDED
 
-typedef struct
-{
+typedef struct {
+
     char nombre[50];
     int edad;
     int estado;
     int dni;
 
-} ePersona;
+}ePersona;
 
 /**
  * Obtiene el primer indice libre del array.
  * @param lista el array se pasa como parametro.
  * @return el primer indice disponible
  */
-int obtenerEspacioLibre(ePersona lista[]);
+int obtenerEspacioLibre(ePersona lista[], int tam);
 
 /**
  * Obtiene el indice que coincide con el dni pasado por parametro.
@@ -26,52 +26,52 @@ int obtenerEspacioLibre(ePersona lista[]);
 int buscarPorDni(ePersona lista[], int dni);
 
 
-/**\brief muestra a la persona a elegir
- * \param array de tipo ePersona
- */
-void mostrarPersona(ePersona);
-
-
-/** \brief muestra a todas las personas dadas de alta
+/** \brief Agrega una persona a un array de tipo ePersona
  * \param un array de la clase ePersona
  * \param tamaño del array
  */
-void mostrarTodos(ePersona[], int);
+agregarPersona(ePersona lista[], int tam);
 
 
 /** \brief inicializa todos los estados en 0
  * \param un array de la clase ePersona
  * \param tamaño del array
  */
+inicializarEstados(ePersona lista[], int tam);
 
-void restaurarEstado(ePersona[], int);
+
+/**\brief muestra a la persona a elegir
+ * \param array de tipo ePersona
+ */
+mostrarPersona(ePersona lista[], int persona);
+
+
+/** \brief BAJA a una persona
+ * \param un array de la clase ePersona
+ * \param tamaño del array
+ */
+borrarPersona(ePersona lista[], int tam);
 
 
 /** \brief Ordena los nombres en orden alfabetico
  * \param un array de la clase ePersona
  * \param tamaño del array
  */
+ordenarLista(ePersona lista[], int tam);
 
-void ordenarNombres(ePersona[], int);
 
-
-/** \brief Agrega una persona a un array de tipo ePersona
+/** \brief muestra a todas las personas dadas de alta
  * \param un array de la clase ePersona
  * \param tamaño del array
  */
-void agregarPersona(ePersona[], int);
+mostrarLista(ePersona lista[], int tam);
 
-/** \brief BAJA a una persona
- * \param un array de la clase ePersona
- * \param tamaño del array
+
+/** \brief Imprime un grafico de edades
+ * \param contador de personas de edad menor a 18 años
+ * \param contador de personas de edad entre 19 y 35 años
+ * \param contador de personas de edad mayores a 35 años
  */
-void confirmarEliminarPersona(ePersona[], int);
-
-
-/** \brief Imprime un grafico de edades especificadas dentro de la funcion
- * \param un array de la clase ePersona
- * \param tamaño del array
- */
-void imprimirGraficoEdades(ePersona[], int);
+imprimirGraficoEdades(int, int ,int);
 
 #endif // FUNCIONES_H_INCLUDED

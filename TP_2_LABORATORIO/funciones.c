@@ -1,26 +1,72 @@
-#include "funciones.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#define P 20
+#include "funciones.h"
 
-mostrarPersona(ePersona personas)
-{
-    printf("\nNombre: %s, edad: %d, dni: %d", personas.nombre, personas.edad, personas.dni);
-}
 
-restaurarEstado(ePersona personas[], int tam)
+
+imprimirGraficoEdades(int contMenor18, int contEntre19y35, int contMayor35)
 {
-    int i;
-    for(i=0; i<tam; i++)
+
+
+    int i, j;
+    int maxContador=0;
+    int arrayContador[3] = {contMenor18, contEntre19y35, contMayor35};
+
+
+
+    for(i=0; i<3; i++)
     {
-        personas[i].estado = 0;
-    }
-}
+        if(arrayContador[i] > maxContador)
+        {
+            maxContador = arrayContador[i];
+        }
 
-ordenarNombres(ePersona personas[], int tam)
+    }
+
+
+
+    for(i=maxContador; i>0; i--)
 {
 
+
+
+        for(j=0; j<3; j++)
+        {
+            if(arrayContador[j] >= i)
+            {
+                printf("\t*");
+            }
+            else
+            {
+                printf("\t");
+            }
+
+        }
+
+        printf("\n");
+    }
+    printf("\t<18\t19>35\t>35\n");
+
+
+}
+
+
+mostrarLista(ePersona lista[], int tam)
+{
+      int i;
+     for(i=0; i<tam; i++)
+            {
+                if(lista[i].estado == 1)
+                {
+                    mostrarPersona(lista, i);
+                }
+            }
+}
+
+
+ordenarLista(ePersona lista[], int tam)
+{
     int i, j;
     ePersona auxPersona;
 
@@ -28,11 +74,11 @@ ordenarNombres(ePersona personas[], int tam)
     {
         for(j=i+1; j<tam; j++)
         {
-            if(strcmp(personas[i].nombre, personas[j].nombre) > 0)
+            if(strcmp(lista[i].nombre, lista[j].nombre) > 0)
             {
-                auxPersona = personas[i];
-                personas[i] = personas[j];
-                personas[j] = auxPersona;
+                auxPersona = lista[i];
+                lista[i] = lista[j];
+                lista[j] = auxPersona;
 
             }
         }
@@ -41,71 +87,8 @@ ordenarNombres(ePersona personas[], int tam)
 }
 
 
-agregarPersona(ePersona personas[], int tam)
-{
-    char buffer[200];
-    int i, j, auxDni;
-    char agregarOtraPersona = 's';
-    int flagCapacidad = 0;
-    for(i=0; i<tam; i++)
-    {
 
-             if(personas[i].estado == 0 && agregarOtraPersona == 's')
-        {
-
-            printf("\nIngrese el nombre de la persona: ");
-            fflush(stdin);
-            gets(buffer);
-
-            while(strlen(buffer) > 49) //VERIFICA EL TAMAÑO DEL NOMBRE INGRESADO.
-            {
-                printf("\nEl nombre debe contener menos de 50 caractéres!. Nuevo nombre:  ");
-                fflush(stdin);
-                gets(buffer);
-            }
-
-            strcpy(personas[i].nombre, buffer);
-
-            printf("\nIngrese la edad de la persona: ");
-            scanf("%d", &personas[i].edad);
-
-            printf("\nIngrese el DNI de la persona: ");
-            scanf("%d", &auxDni);
-
-            for(j=0;j<tam;j++) //VERIFICA SI EL DNI INGRESADO YA EXISTE.
-            {
-                while(auxDni == personas[j].dni)
-                {
-                    printf("Ese DNI ya esta en uso! Ingrese uno diferente a continuacion: ");
-                    scanf("%d", &auxDni);
-                }
-
-            }
-
-            personas[i].dni = auxDni;
-
-            printf("\nAgregado: ");
-            mostrarPersona(personas[i]);
-
-            personas[i].estado = 1;
-            flagCapacidad = 1;
-
-            printf("\nDesea agregar otra persona mas en este momento?(s/n)\n");
-            agregarOtraPersona = getche();
-        }
-    }
-
-
-
-    if(flagCapacidad == 0)
-    {
-        printf("\nNo hay mas espacio disponible!");
-    }
-
-        }
-
-
-confirmarEliminarPersona(ePersona personas[], int tam)
+borrarPersona(ePersona lista[], int tam)
 {
     int flagConfirmarEliminar = 0;
     int i;
@@ -117,9 +100,9 @@ confirmarEliminarPersona(ePersona personas[], int tam)
 
     for(i=0; i<tam; i++)
     {
-        if(personas[i].estado == 1 && personas[i].dni == borrarDni)
+        if(lista[i].estado == 1 && lista[i].dni == borrarDni)
         {
-            mostrarPersona(personas[i]);
+            mostrarPersona(lista, i);
             printf("\nSeguro quiere eliminar a esta persona?");
             eliminarPersona = getche();
             flagConfirmarEliminar = 1;
@@ -127,7 +110,7 @@ confirmarEliminarPersona(ePersona personas[], int tam)
             if(eliminarPersona == 's')
             {
                 printf("\nHa sido eliminado!");
-                personas[i].estado = 0;
+                lista[i].estado = 0;
                 break;
             }
             else
@@ -143,52 +126,109 @@ confirmarEliminarPersona(ePersona personas[], int tam)
     {
         printf("No existe esa persona!");
     }
-
-
 }
 
-imprimirGraficoEdades(ePersona personas[], int tam)
+
+
+mostrarPersona(ePersona lista[], int persona)
 {
-    int i;
+    printf("Nombre: %s, Edad: %d, DNI: %d\n",lista[persona].nombre, lista[persona].edad, lista[persona].dni);
+}
+
+
+
+inicializarEstados(ePersona lista[], int tam)
+{
+
+
+int i;
     for(i=0; i<tam; i++)
     {
-        if(personas[i].estado == 1)
-        {
-
-            if(personas[i].edad < 18)
-            {
-                printf("*");
-            }
-
-            if(personas[i].edad > 19 && personas[i].edad < 35)
-            {
-                printf("\t*\t");
-            }
-
-            if(personas[i].edad > 35)
-            {
-                printf("\t\t*\t\t");
-            }
-
-            printf("\n");
-        }
+        lista[i].estado = 0;
+    }
 
     }
 
-    printf("<18\t19>35\t>35");
-}
 
-mostrarTodos(ePersona personas[], int tam)
+
+
+
+int obtenerEspacioLibre(ePersona lista[], int tam)
 {
     int i;
-     for(i=0; i<tam; i++)
-            {
-                if(personas[i].estado == 1)
-                {
-                    mostrarPersona(personas[i]);
-                }
-            }
+    int flag = 0;
+    int espacioLibre;
+
+    for(i=0;i<tam;i++)
+    {
+        if(lista[i].estado == 0)
+        {
+            espacioLibre = i;
+            flag = 1;
+            break;
+        }
+    }
+
+    if(flag == 0)
+    {
+        espacioLibre = -1;
+    }
+
+    return espacioLibre;
 }
 
 
 
+
+agregarPersona(ePersona lista[], int tam)
+{
+    char buffer[200];
+    int espacioLibre = obtenerEspacioLibre(lista, tam);
+    int i, j, auxDni;
+
+             if(lista[espacioLibre].estado == 0 && espacioLibre != -1)
+        {
+
+            printf("\nIngrese el nombre de la persona: ");
+            fflush(stdin);
+            gets(buffer);
+
+            while(strlen(buffer) > 49) //VERIFICA EL TAMAÑO DEL NOMBRE INGRESADO.
+            {
+                printf("\nEl nombre debe contener menos de 50 caractéres!. Nuevo nombre:  ");
+                fflush(stdin);
+                gets(buffer);
+            }
+
+            strcpy(lista[espacioLibre].nombre, buffer);
+
+            printf("\nIngrese la edad de la persona: ");
+            scanf("%d", &lista[espacioLibre].edad);
+
+            printf("\nIngrese el DNI de la persona: ");
+            scanf("%d", &auxDni);
+
+            for(j=0;j<tam;j++) //VERIFICA SI EL DNI INGRESADO YA EXISTE.
+            {
+                while(auxDni == lista[espacioLibre].dni)
+                {
+                    printf("Ese DNI ya esta en uso! Ingrese uno diferente a continuacion: ");
+                    scanf("%d", &auxDni);
+                }
+
+            }
+
+            lista[espacioLibre].dni = auxDni;
+
+            printf("\nAgregado: ");
+            mostrarPersona(lista, espacioLibre);
+
+            lista[espacioLibre].estado = 1;
+        }
+
+        if(espacioLibre == -1)
+    {
+        printf("\nNo hay mas espacio disponible!");
+    }
+
+    }

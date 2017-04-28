@@ -2,13 +2,17 @@
 #include <stdlib.h>
 #include <string.h>
 #include "funciones.h"
-#define P 20
+#define CANT 20
+
 
 int main()
 {
-    ePersona personas[P];
     char seguir='s';
     int opcion=0;
+    ePersona lista[CANT];
+    int i, contMenor18, contEntre19y35, contMayor35;
+
+    inicializarEstados(lista, CANT);
 
     while(seguir=='s')
     {
@@ -23,22 +27,52 @@ int main()
         switch(opcion)
         {
         case 1:
-            agregarPersona(personas, P);
+            obtenerEspacioLibre(lista, CANT);
+            agregarPersona(lista, CANT);
             break;
         case 2:
-            confirmarEliminarPersona(personas, P);
+            borrarPersona(lista, CANT);
             break;
         case 3:
-            ordenarNombres(personas, P);
-            mostrarTodos(personas, P);
+            ordenarLista(lista, CANT);
+            mostrarLista(lista, CANT);
             break;
         case 4:
-            imprimirGraficoEdades(personas, P);
+
+            contMenor18 = 0;
+            contEntre19y35 = 0;
+            contMayor35 = 0;
+
+            for(i=0; i<CANT; i++)
+            {
+                if(lista[i].estado == 1)
+                {
+
+
+                    if(lista[i].edad < 18)
+                    {
+                        contMenor18++;
+
+                    }
+                    else if(lista[i].edad >19 && lista[i].edad < 35)
+                    {
+                        contEntre19y35++;
+                    }
+                    else
+                    {
+                        contMayor35++;
+                    }
+                }
+            }
+
+
+            imprimirGraficoEdades(contMenor18, contEntre19y35, contMayor35);
             break;
         case 5:
             seguir = 'n';
             break;
         }
     }
+
     return 0;
 }
