@@ -2,17 +2,17 @@
 #include <stdlib.h>
 #include <string.h>
 #include "funciones.h"
-#define CANT 20
+#define NUM 20
 
 
 int main()
 {
     char seguir='s';
     int opcion=0;
-    ePersona lista[CANT];
+    ePersona lista[NUM];
     int i, contMenor18, contEntre19y35, contMayor35;
 
-    inicializarEstados(lista, CANT);
+    inicializarEstados(lista, NUM);
 
     while(seguir=='s')
     {
@@ -27,15 +27,15 @@ int main()
         switch(opcion)
         {
         case 1:
-            obtenerEspacioLibre(lista, CANT);
-            agregarPersona(lista, CANT);
+            obtenerEspacioLibre(lista, NUM);
+            agregarPersona(lista, NUM);
             break;
         case 2:
-            borrarPersona(lista, CANT);
+            borrarPersona(lista, NUM);
             break;
         case 3:
-            ordenarLista(lista, CANT);
-            mostrarLista(lista, CANT);
+            ordenarLista(lista, NUM);
+            mostrarLista(lista, NUM);
             break;
         case 4:
 
@@ -43,7 +43,7 @@ int main()
             contEntre19y35 = 0;
             contMayor35 = 0;
 
-            for(i=0; i<CANT; i++)
+            for(i=0; i<NUM; i++)
             {
                 if(lista[i].estado == 1)
                 {

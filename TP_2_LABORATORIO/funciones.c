@@ -103,9 +103,10 @@ borrarPersona(ePersona lista[], int tam)
         if(lista[i].estado == 1 && lista[i].dni == borrarDni)
         {
             mostrarPersona(lista, i);
-            printf("\nSeguro quiere eliminar a esta persona?");
+            printf("\nSeguro quiere eliminar a esta persona? (s/n)");
             eliminarPersona = getche();
             flagConfirmarEliminar = 1;
+
 
             if(eliminarPersona == 's')
             {
@@ -184,7 +185,7 @@ agregarPersona(ePersona lista[], int tam)
 {
     char buffer[200];
     int espacioLibre = obtenerEspacioLibre(lista, tam);
-    int i, j, auxDni;
+    int i, auxDni, auxEdad;
 
              if(lista[espacioLibre].estado == 0 && espacioLibre != -1)
         {
@@ -202,15 +203,25 @@ agregarPersona(ePersona lista[], int tam)
 
             strcpy(lista[espacioLibre].nombre, buffer);
 
+
             printf("\nIngrese la edad de la persona: ");
-            scanf("%d", &lista[espacioLibre].edad);
+            scanf("%d", &auxEdad);
+
+            while(auxEdad < 0 ) //VERIFICA QUE LA EDAD SEA POSITIVA
+            {
+                printf("\nLa edad no puede ser negativa !!. Ingrese una distinta: ");
+                scanf("%d", &auxEdad);
+            }
+
+            lista[espacioLibre].edad = auxEdad;
+
 
             printf("\nIngrese el DNI de la persona: ");
             scanf("%d", &auxDni);
 
-            for(j=0;j<tam;j++) //VERIFICA SI EL DNI INGRESADO YA EXISTE.
+            for(i=0;i<tam;i++) //VERIFICA SI EL DNI INGRESADO YA EXISTE.
             {
-                while(auxDni == lista[espacioLibre].dni)
+                while(auxDni == lista[i].dni)
                 {
                     printf("Ese DNI ya esta en uso! Ingrese uno diferente a continuacion: ");
                     scanf("%d", &auxDni);
