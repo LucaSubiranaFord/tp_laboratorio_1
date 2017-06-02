@@ -4,7 +4,29 @@
 #include "ArrayList.h"
 #include "funciones.h"
 
-agregarPelicula(ArrayList* lista)
+
+generarBin(ArrayList* lista, FILE* bin)
+{
+    int i;
+    eMovie* aux;
+    bin = fopen("peliculas.dat","wb");
+
+    if(bin != NULL)
+    {
+        for(i=0;i<al_len(lista);i++)
+        {
+            aux = newMovie();
+            aux = al_get(lista,i);
+            fwrite(aux, sizeof(eMovie),al_len(lista),bin);
+        }
+        printf("Archivo generado correctamente!\n");
+    }else
+    {
+        printf("Ha ocurrido un error!\n");
+    }
+}
+
+agregarPelicula(ArrayList* lista,FILE* bin)
 {
     eMovie* auxMovie;
     auxMovie = newMovie();
@@ -84,6 +106,7 @@ agregarPelicula(ArrayList* lista)
     strcpy( auxMovie->linkImagen, buffer );
 
     al_add(lista,auxMovie);
+    generarBin(lista,bin);
 
     printf("Pelicula añadida correctamente! \n");
 
@@ -96,7 +119,7 @@ eMovie* newMovie()
     return aux;
 }
 
-borrarPelicula(ArrayList* lista)
+borrarPelicula(ArrayList* lista,FILE* bin)
 {
     int i,j;
     eMovie* aux;
@@ -130,11 +153,12 @@ borrarPelicula(ArrayList* lista)
     }
 
     al_remove(lista, auxI);
+    generarBin(lista,bin);
 
 }
 
 
-modificarPelicula(ArrayList* lista)
+modificarPelicula(ArrayList* lista,FILE* bin)
 {
     int existePelicula = 0;
     int auxI;
@@ -244,6 +268,7 @@ modificarPelicula(ArrayList* lista)
     strcpy( auxMovie->linkImagen, buffer );
 
     al_set(lista,auxI, auxMovie);
+    generarBin(lista,bin);
 
 }
 

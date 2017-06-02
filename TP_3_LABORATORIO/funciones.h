@@ -14,14 +14,14 @@ typedef struct{
 /** \brief Agrega una pelicula al tipo de dato ArrayList
  * \param El tipo de dato ArrayList
  */
-agregarPelicula(ArrayList*);
+agregarPelicula(ArrayList*,FILE*);
 
 
 
 /** \brief Elimina una pelicula del ArrayList
  * \param El tipo de dato ArrayList
  */
-borrarPelicula(ArrayList*);
+borrarPelicula(ArrayList*, FILE*);
 
 
 
@@ -36,7 +36,7 @@ eMovie* newMovie();
 /** \brief Modifica una pelicula dentro del ArrayList
  * \param El tipo de dato ArrayList
  */
-modificarPelicula(ArrayList*);
+modificarPelicula(ArrayList*,FILE*);
 
 
 
@@ -45,6 +45,15 @@ modificarPelicula(ArrayList*);
  */
 generarPagina(ArrayList*);
 
+
+
+
+/** \brief Genera un archivo .dat con los datos del ArrayList
+ *
+ * \param El tipo de dato ArrayList
+ * \param el FILE bin
+ */
+generarBin(ArrayList*, FILE*);
 
 #endif // _EMPLOYEE_H
 

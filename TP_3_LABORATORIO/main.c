@@ -11,6 +11,7 @@ int main()
     eMovie* aux;
     lista = al_newArrayList();
     int i;
+    FILE* bin;
 
     while(seguir=='s')
     {
@@ -25,19 +26,26 @@ int main()
         switch(opcion)
         {
             case 1:
-                agregarPelicula(lista);
+                system("cls");
+                agregarPelicula(lista, bin);
                 break;
             case 2:
-                borrarPelicula(lista);
+                system("cls");
+                borrarPelicula(lista, bin);
                 break;
             case 3:
-                modificarPelicula(lista);
+                system("cls");
+                modificarPelicula(lista, bin);
                break;
                case 4:
+                   system("cls");
                    generarPagina(lista);
                break;
             case 5:
                 seguir = 'n';
+                break;
+            default:
+                printf("Ingreso una opcion incorrecta! \n");
                 break;
         }
     }

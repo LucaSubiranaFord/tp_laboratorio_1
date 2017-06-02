@@ -155,3 +155,20 @@
 	"ArrayList.h"
 	"funciones.h"
 
+1496422904 source:c:\users\pc\desktop\tp_3_laboratorio\main.c
+	<stdio.h>
+	<stdlib.h>
+	"ArrayList.h"
+	"funciones.h"
+
+1496394050 c:\users\pc\desktop\tp_3_laboratorio\arraylist.h
+
+1496422904 c:\users\pc\desktop\tp_3_laboratorio\funciones.h
+
+1496422711 source:c:\users\pc\desktop\tp_3_laboratorio\funciones.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"ArrayList.h"
+	"funciones.h"
+
