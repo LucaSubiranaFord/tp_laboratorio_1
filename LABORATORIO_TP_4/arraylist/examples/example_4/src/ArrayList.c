@@ -127,6 +127,8 @@ int al_deleteArrayList(ArrayList* pList)
         returnAux = 0;
     }
 
+    //VOLVER A PREGUNTAR QUE MAS TENGO QUE HACER
+
     return returnAux;
 }
 
@@ -222,9 +224,37 @@ int al_set(ArrayList* pList, int index,void* pElement)
  * \return int Return (-1) if Error [pList is NULL pointer or invalid index]
  *                  - ( 0) if Ok
  */
-int al_remove(ArrayList* this,int index)
+int al_remove(ArrayList* pList,int index)
 {
     int returnAux = -1;
+    int i,j;
+    void* aux;
+    aux = (void*) malloc(sizeof(void));
+    int tam;
+
+    if(pList != NULL)
+    {
+        tam = pList->size;
+        if(index <= tam && index > -1)
+        {
+            for(i=index;i=(tam-1);i++)
+            {
+                for(j=(i+1);j=tam;j++)
+                {
+                    aux = *(pList->pElements+i);
+                    *(pList->pElements+i) = *(pList->pElements+j);
+                    *(pList->pElements+j) = aux;
+                    break;
+                }
+            }
+
+            //UNA VEZ QUE PASE EL ELEMENTO A LO ULTIMO, BAJARIA EN 1 EL SIZE PERO QUEDARIA LA MEMORIA IGUAL. COMO LA ELIMINO COMPLETAMENTE? PREGUNTAR SOBRE CONTRACT RESIZE
+
+            returnAux = 0;
+        }
+    }
+
+
 
     return returnAux;
 }
@@ -236,10 +266,25 @@ int al_remove(ArrayList* this,int index)
  * \return int Return (-1) if Error [pList is NULL pointer]
  *                  - ( 0) if Ok
  */
-int al_clear(ArrayList* this)
+int al_clear(ArrayList* pList)
 {
     int returnAux = -1;
-    // USAR FUNCIONES COMO CONTRACT, RESIZEDOWN Y EXPAND
+       int i;
+
+    if(pList != NULL)
+    {
+        for(i=0; i<pList->size; i++)
+        {
+            free(pList->pElements+i);
+        }
+
+        pList->size = 0;
+        pList->reservedSize = AL_INITIAL_VALUE;
+
+        // PREGUNTAR CONTRACT ETC. (LO DEL INDICE)
+
+        returnAux = 0;
+    }
     return returnAux;
 }
 
