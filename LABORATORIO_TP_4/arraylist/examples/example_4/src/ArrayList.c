@@ -248,6 +248,10 @@ int al_remove(ArrayList* pList,int index)
                 }
             }
 
+            //EN VEZ DE HACER TODO ESTE FOR PUEDO HACER UN CONTRACT. HAGO UN FREE DEL ELEMENTO Y UNA ESCALERITA QUE PASA TODO, Y LUEGO CON EL SIZE LO ACHICO Y LISTO
+
+            // USARLO PARA BAJAR EL SIZE pList->size -= 1;
+
             //UNA VEZ QUE PASE EL ELEMENTO A LO ULTIMO, BAJARIA EN 1 EL SIZE PERO QUEDARIA LA MEMORIA IGUAL. COMO LA ELIMINO COMPLETAMENTE? PREGUNTAR SOBRE CONTRACT RESIZE
 
             returnAux = 0;
@@ -339,10 +343,22 @@ int al_indexOf(ArrayList* this, void* pElement)
  * \param pList ArrayList* Pointer to arrayList
  * \return int Return (-1) if Error [pList is NULL pointer] - (0) if Not Empty - (1) if is Empty
  */
-int al_isEmpty(ArrayList* this)
+int al_isEmpty(ArrayList* pList)
 {
     int returnAux = -1;
+    int tam;
 
+    if(pList != NULL)
+    {
+        tam = pList->size;
+        if(tam == 0)
+        {
+            returnAux = 1;
+        }else
+        {
+            returnAux = 0;
+        }
+    }
     return returnAux;
 }
 
@@ -355,9 +371,33 @@ int al_isEmpty(ArrayList* this)
  * \return int Return (NULL) if Error [pList is NULL pointer or invalid index]
  *                  - ( element pointer) if Ok
  */
-void* al_pop(ArrayList* this,int index)
+void* al_pop(ArrayList* pList,int index)
 {
     void* returnAux = NULL;
+    returnAux = (void*) malloc(sizeof(void));
+    int i,j;
+    void* aux;
+    aux = (void*) malloc(sizeof(void));
+    int tam;
+
+    if(pList != NULL)
+    {
+        tam = pList->size;
+        if(index <= tam && index > -1)
+        {
+            returnAux = *(pList->pElements+index);
+            for(i=index;i=(tam-1);i++)
+            {
+                for(j=(i+1);j=tam;j++)
+                {
+                    aux = *(pList->pElements+i);
+                    *(pList->pElements+i) = *(pList->pElements+j);
+                    *(pList->pElements+j) = aux;
+                    break;
+                }
+            }
+        }
+    }
 
     return returnAux;
 }
@@ -446,5 +486,14 @@ int contract(ArrayList* this,int index)
 {
     int returnAux = -1;
 
+    //VER AL_POP QUE EXPLICO COMO HACERLO
+
     return returnAux;
+}
+
+
+
+int resizeDown(ArrayList* pList)
+{
+    //UN RESIZE DOWN DEL ESPACIO EN MEMORIA RESERVADO. ASI NO QUEDA BASURA
 }
