@@ -224,15 +224,15 @@
 	<string.h>
 	"../inc/ArrayList.h"
 
-1496919630 source:c:\users\pc\desktop\tp_laboratorio_1-master\laboratorio_tp_4\arraylist\utest.c
+1496998526 source:c:\users\pc\desktop\tp_laboratorio_1-master\laboratorio_tp_4\arraylist\utest.c
 	"utest.h"
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 
-1496919630 c:\users\pc\desktop\tp_laboratorio_1-master\laboratorio_tp_4\arraylist\utest.h
+1496998526 c:\users\pc\desktop\tp_laboratorio_1-master\laboratorio_tp_4\arraylist\utest.h
 
-1496919630 source:c:\users\pc\desktop\tp_laboratorio_1-master\laboratorio_tp_4\arraylist\examples\example_4\testing\src\eighthtest.c
+1496998526 source:c:\users\pc\desktop\tp_laboratorio_1-master\laboratorio_tp_4\arraylist\examples\example_4\testing\src\eighthtest.c
 	<utest.h>
 	<stdio.h>
 	<stdlib.h>
@@ -240,11 +240,11 @@
 	"../../inc/ArrayList.h"
 	"../../inc/Employee.h"
 
-1496919630 c:\users\pc\desktop\tp_laboratorio_1-master\laboratorio_tp_4\arraylist\examples\example_4\inc\arraylist.h
+1496998526 c:\users\pc\desktop\tp_laboratorio_1-master\laboratorio_tp_4\arraylist\examples\example_4\inc\arraylist.h
 
-1496919630 c:\users\pc\desktop\tp_laboratorio_1-master\laboratorio_tp_4\arraylist\examples\example_4\inc\employee.h
+1496998526 c:\users\pc\desktop\tp_laboratorio_1-master\laboratorio_tp_4\arraylist\examples\example_4\inc\employee.h
 
-1496919630 source:c:\users\pc\desktop\tp_laboratorio_1-master\laboratorio_tp_4\arraylist\examples\example_4\testing\src\eleventhtest.c
+1496998526 source:c:\users\pc\desktop\tp_laboratorio_1-master\laboratorio_tp_4\arraylist\examples\example_4\testing\src\eleventhtest.c
 	<utest.h>
 	<stdio.h>
 	<stdlib.h>
@@ -252,7 +252,7 @@
 	"../../inc/ArrayList.h"
 	"../../inc/Employee.h"
 
-1496919630 source:c:\users\pc\desktop\tp_laboratorio_1-master\laboratorio_tp_4\arraylist\examples\example_4\testing\src\fifteenthtest.c
+1496998526 source:c:\users\pc\desktop\tp_laboratorio_1-master\laboratorio_tp_4\arraylist\examples\example_4\testing\src\fifteenthtest.c
 	<utest.h>
 	<stdio.h>
 	<stdlib.h>
@@ -260,7 +260,7 @@
 	"../../inc/ArrayList.h"
 	"../../inc/Employee.h"
 
-1496919630 source:c:\users\pc\desktop\tp_laboratorio_1-master\laboratorio_tp_4\arraylist\examples\example_4\testing\src\fifthtest.c
+1496998526 source:c:\users\pc\desktop\tp_laboratorio_1-master\laboratorio_tp_4\arraylist\examples\example_4\testing\src\fifthtest.c
 	<utest.h>
 	<stdio.h>
 	<stdlib.h>
@@ -268,22 +268,14 @@
 	"../../inc/ArrayList.h"
 	"../../inc/Employee.h"
 
-1496919630 source:c:\users\pc\desktop\tp_laboratorio_1-master\laboratorio_tp_4\arraylist\examples\example_4\testing\src\firsttest.c
+1496998526 source:c:\users\pc\desktop\tp_laboratorio_1-master\laboratorio_tp_4\arraylist\examples\example_4\testing\src\firsttest.c
 	<utest.h>
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 	"../../inc/ArrayList.h"
 
-1496919630 source:c:\users\pc\desktop\tp_laboratorio_1-master\laboratorio_tp_4\arraylist\examples\example_4\testing\src\fourteenthtest.c
-	<utest.h>
-	<stdio.h>
-	<stdlib.h>
-	<string.h>
-	"../../inc/ArrayList.h"
-	"../../inc/Employee.h"
-
-1496919630 source:c:\users\pc\desktop\tp_laboratorio_1-master\laboratorio_tp_4\arraylist\examples\example_4\testing\src\fourthtest.c
+1496998526 source:c:\users\pc\desktop\tp_laboratorio_1-master\laboratorio_tp_4\arraylist\examples\example_4\testing\src\fourteenthtest.c
 	<utest.h>
 	<stdio.h>
 	<stdlib.h>
@@ -291,7 +283,15 @@
 	"../../inc/ArrayList.h"
 	"../../inc/Employee.h"
 
-1496919630 source:c:\users\pc\desktop\tp_laboratorio_1-master\laboratorio_tp_4\arraylist\examples\example_4\testing\src\main_test.c
+1496998526 source:c:\users\pc\desktop\tp_laboratorio_1-master\laboratorio_tp_4\arraylist\examples\example_4\testing\src\fourthtest.c
+	<utest.h>
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"../../inc/ArrayList.h"
+	"../../inc/Employee.h"
+
+1496998526 source:c:\users\pc\desktop\tp_laboratorio_1-master\laboratorio_tp_4\arraylist\examples\example_4\testing\src\main_test.c
 	<utest.h>
 	<stdio.h>
 	<stdlib.h>
@@ -313,41 +313,41 @@
 	"../inc/sixteenthTest.h"
 	"../inc/seventeenthTest.h"
 
-1496919630 c:\users\pc\desktop\tp_laboratorio_1-master\laboratorio_tp_4\arraylist\examples\example_4\testing\inc\firsttest.h
+1496998526 c:\users\pc\desktop\tp_laboratorio_1-master\laboratorio_tp_4\arraylist\examples\example_4\testing\inc\firsttest.h
 
-1496919630 c:\users\pc\desktop\tp_laboratorio_1-master\laboratorio_tp_4\arraylist\examples\example_4\testing\inc\secondtest.h
+1496998526 c:\users\pc\desktop\tp_laboratorio_1-master\laboratorio_tp_4\arraylist\examples\example_4\testing\inc\secondtest.h
 
-1496919630 c:\users\pc\desktop\tp_laboratorio_1-master\laboratorio_tp_4\arraylist\examples\example_4\testing\inc\thirdtest.h
+1496998526 c:\users\pc\desktop\tp_laboratorio_1-master\laboratorio_tp_4\arraylist\examples\example_4\testing\inc\thirdtest.h
 
-1496919630 c:\users\pc\desktop\tp_laboratorio_1-master\laboratorio_tp_4\arraylist\examples\example_4\testing\inc\fourthtest.h
+1496998526 c:\users\pc\desktop\tp_laboratorio_1-master\laboratorio_tp_4\arraylist\examples\example_4\testing\inc\fourthtest.h
 
-1496919630 c:\users\pc\desktop\tp_laboratorio_1-master\laboratorio_tp_4\arraylist\examples\example_4\testing\inc\fifthtest.h
+1496998526 c:\users\pc\desktop\tp_laboratorio_1-master\laboratorio_tp_4\arraylist\examples\example_4\testing\inc\fifthtest.h
 
-1496919630 c:\users\pc\desktop\tp_laboratorio_1-master\laboratorio_tp_4\arraylist\examples\example_4\testing\inc\sixthtest.h
+1496998526 c:\users\pc\desktop\tp_laboratorio_1-master\laboratorio_tp_4\arraylist\examples\example_4\testing\inc\sixthtest.h
 
-1496919630 c:\users\pc\desktop\tp_laboratorio_1-master\laboratorio_tp_4\arraylist\examples\example_4\testing\inc\seventhtest.h
+1496998526 c:\users\pc\desktop\tp_laboratorio_1-master\laboratorio_tp_4\arraylist\examples\example_4\testing\inc\seventhtest.h
 
-1496919630 c:\users\pc\desktop\tp_laboratorio_1-master\laboratorio_tp_4\arraylist\examples\example_4\testing\inc\eighthtest.h
+1496998526 c:\users\pc\desktop\tp_laboratorio_1-master\laboratorio_tp_4\arraylist\examples\example_4\testing\inc\eighthtest.h
 
-1496919630 c:\users\pc\desktop\tp_laboratorio_1-master\laboratorio_tp_4\arraylist\examples\example_4\testing\inc\ninthtest.h
+1496998526 c:\users\pc\desktop\tp_laboratorio_1-master\laboratorio_tp_4\arraylist\examples\example_4\testing\inc\ninthtest.h
 
-1496919630 c:\users\pc\desktop\tp_laboratorio_1-master\laboratorio_tp_4\arraylist\examples\example_4\testing\inc\tenthtest.h
+1496998526 c:\users\pc\desktop\tp_laboratorio_1-master\laboratorio_tp_4\arraylist\examples\example_4\testing\inc\tenthtest.h
 
-1496919630 c:\users\pc\desktop\tp_laboratorio_1-master\laboratorio_tp_4\arraylist\examples\example_4\testing\inc\eleventhtest.h
+1496998526 c:\users\pc\desktop\tp_laboratorio_1-master\laboratorio_tp_4\arraylist\examples\example_4\testing\inc\eleventhtest.h
 
-1496919630 c:\users\pc\desktop\tp_laboratorio_1-master\laboratorio_tp_4\arraylist\examples\example_4\testing\inc\twelfthtest.h
+1496998526 c:\users\pc\desktop\tp_laboratorio_1-master\laboratorio_tp_4\arraylist\examples\example_4\testing\inc\twelfthtest.h
 
-1496919630 c:\users\pc\desktop\tp_laboratorio_1-master\laboratorio_tp_4\arraylist\examples\example_4\testing\inc\thirteenthtest.h
+1496998526 c:\users\pc\desktop\tp_laboratorio_1-master\laboratorio_tp_4\arraylist\examples\example_4\testing\inc\thirteenthtest.h
 
-1496919630 c:\users\pc\desktop\tp_laboratorio_1-master\laboratorio_tp_4\arraylist\examples\example_4\testing\inc\fourteenthtest.h
+1496998526 c:\users\pc\desktop\tp_laboratorio_1-master\laboratorio_tp_4\arraylist\examples\example_4\testing\inc\fourteenthtest.h
 
-1496919630 c:\users\pc\desktop\tp_laboratorio_1-master\laboratorio_tp_4\arraylist\examples\example_4\testing\inc\fifteenthtest.h
+1496998526 c:\users\pc\desktop\tp_laboratorio_1-master\laboratorio_tp_4\arraylist\examples\example_4\testing\inc\fifteenthtest.h
 
-1496919630 c:\users\pc\desktop\tp_laboratorio_1-master\laboratorio_tp_4\arraylist\examples\example_4\testing\inc\sixteenthtest.h
+1496998526 c:\users\pc\desktop\tp_laboratorio_1-master\laboratorio_tp_4\arraylist\examples\example_4\testing\inc\sixteenthtest.h
 
-1496919630 c:\users\pc\desktop\tp_laboratorio_1-master\laboratorio_tp_4\arraylist\examples\example_4\testing\inc\seventeenthtest.h
+1496998526 c:\users\pc\desktop\tp_laboratorio_1-master\laboratorio_tp_4\arraylist\examples\example_4\testing\inc\seventeenthtest.h
 
-1496919630 source:c:\users\pc\desktop\tp_laboratorio_1-master\laboratorio_tp_4\arraylist\examples\example_4\testing\src\ninthtest.c
+1496998526 source:c:\users\pc\desktop\tp_laboratorio_1-master\laboratorio_tp_4\arraylist\examples\example_4\testing\src\ninthtest.c
 	<utest.h>
 	<stdio.h>
 	<stdlib.h>
@@ -355,7 +355,7 @@
 	"../../inc/ArrayList.h"
 	"../../inc/Employee.h"
 
-1496919630 source:c:\users\pc\desktop\tp_laboratorio_1-master\laboratorio_tp_4\arraylist\examples\example_4\testing\src\secondtest.c
+1496998526 source:c:\users\pc\desktop\tp_laboratorio_1-master\laboratorio_tp_4\arraylist\examples\example_4\testing\src\secondtest.c
 	<utest.h>
 	<stdio.h>
 	<stdlib.h>
@@ -363,7 +363,7 @@
 	"../../inc/ArrayList.h"
 	"../../inc/Employee.h"
 
-1496919630 source:c:\users\pc\desktop\tp_laboratorio_1-master\laboratorio_tp_4\arraylist\examples\example_4\testing\src\seventeenthtest.c
+1496998526 source:c:\users\pc\desktop\tp_laboratorio_1-master\laboratorio_tp_4\arraylist\examples\example_4\testing\src\seventeenthtest.c
 	<utest.h>
 	<stdio.h>
 	<stdlib.h>
@@ -371,7 +371,7 @@
 	"../../inc/ArrayList.h"
 	"../../inc/Employee.h"
 
-1496919630 source:c:\users\pc\desktop\tp_laboratorio_1-master\laboratorio_tp_4\arraylist\examples\example_4\testing\src\seventhtest.c
+1496998526 source:c:\users\pc\desktop\tp_laboratorio_1-master\laboratorio_tp_4\arraylist\examples\example_4\testing\src\seventhtest.c
 	<utest.h>
 	<stdio.h>
 	<stdlib.h>
@@ -379,7 +379,7 @@
 	"../../inc/ArrayList.h"
 	"../../inc/Employee.h"
 
-1496919630 source:c:\users\pc\desktop\tp_laboratorio_1-master\laboratorio_tp_4\arraylist\examples\example_4\testing\src\sixteenthtest.c
+1496998526 source:c:\users\pc\desktop\tp_laboratorio_1-master\laboratorio_tp_4\arraylist\examples\example_4\testing\src\sixteenthtest.c
 	<utest.h>
 	<stdio.h>
 	<stdlib.h>
@@ -387,7 +387,7 @@
 	"../../inc/ArrayList.h"
 	"../../inc/Employee.h"
 
-1496919630 source:c:\users\pc\desktop\tp_laboratorio_1-master\laboratorio_tp_4\arraylist\examples\example_4\testing\src\sixthtest.c
+1496998526 source:c:\users\pc\desktop\tp_laboratorio_1-master\laboratorio_tp_4\arraylist\examples\example_4\testing\src\sixthtest.c
 	<utest.h>
 	<stdio.h>
 	<stdlib.h>
@@ -395,7 +395,7 @@
 	"../../inc/ArrayList.h"
 	"../../inc/Employee.h"
 
-1496919630 source:c:\users\pc\desktop\tp_laboratorio_1-master\laboratorio_tp_4\arraylist\examples\example_4\testing\src\tenthtest.c
+1496998526 source:c:\users\pc\desktop\tp_laboratorio_1-master\laboratorio_tp_4\arraylist\examples\example_4\testing\src\tenthtest.c
 	<utest.h>
 	<stdio.h>
 	<stdlib.h>
@@ -403,7 +403,7 @@
 	"../../inc/ArrayList.h"
 	"../../inc/Employee.h"
 
-1496919630 source:c:\users\pc\desktop\tp_laboratorio_1-master\laboratorio_tp_4\arraylist\examples\example_4\testing\src\thirdtest.c
+1496998526 source:c:\users\pc\desktop\tp_laboratorio_1-master\laboratorio_tp_4\arraylist\examples\example_4\testing\src\thirdtest.c
 	<utest.h>
 	<stdio.h>
 	<stdlib.h>
@@ -411,7 +411,7 @@
 	"../../inc/ArrayList.h"
 	"../../inc/Employee.h"
 
-1496919630 source:c:\users\pc\desktop\tp_laboratorio_1-master\laboratorio_tp_4\arraylist\examples\example_4\testing\src\thirteenthtest.c
+1496998526 source:c:\users\pc\desktop\tp_laboratorio_1-master\laboratorio_tp_4\arraylist\examples\example_4\testing\src\thirteenthtest.c
 	<utest.h>
 	<stdio.h>
 	<stdlib.h>
@@ -419,7 +419,7 @@
 	"../../inc/ArrayList.h"
 	"../../inc/Employee.h"
 
-1496919630 source:c:\users\pc\desktop\tp_laboratorio_1-master\laboratorio_tp_4\arraylist\examples\example_4\testing\src\twelfthtest.c
+1496998526 source:c:\users\pc\desktop\tp_laboratorio_1-master\laboratorio_tp_4\arraylist\examples\example_4\testing\src\twelfthtest.c
 	<utest.h>
 	<stdio.h>
 	<stdlib.h>
@@ -427,13 +427,13 @@
 	"../../inc/ArrayList.h"
 	"../../inc/Employee.h"
 
-1496919630 source:c:\users\pc\desktop\tp_laboratorio_1-master\laboratorio_tp_4\arraylist\examples\example_4\src\employee.c
+1496998526 source:c:\users\pc\desktop\tp_laboratorio_1-master\laboratorio_tp_4\arraylist\examples\example_4\src\employee.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 	"../inc/Employee.h"
 
-1496919630 source:c:\users\pc\desktop\tp_laboratorio_1-master\laboratorio_tp_4\arraylist\examples\example_4\src\main.c
+1496998526 source:c:\users\pc\desktop\tp_laboratorio_1-master\laboratorio_tp_4\arraylist\examples\example_4\src\main.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -441,7 +441,7 @@
 	"../inc/ArrayList.h"
 	"../inc/Employee.h"
 
-1496919630 c:\users\pc\desktop\tp_laboratorio_1-master\laboratorio_tp_4\arraylist\examples\example_4\testing\inc\main_test.h
+1496998526 c:\users\pc\desktop\tp_laboratorio_1-master\laboratorio_tp_4\arraylist\examples\example_4\testing\inc\main_test.h
 
 1496955803 source:d:\tp_laboratorio_1-master\laboratorio_tp_4\arraylist\utest.c
 	"utest.h"

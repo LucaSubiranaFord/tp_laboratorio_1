@@ -73,24 +73,11 @@ int al_add(ArrayList* pList, void* pElement)
     int returnAux = -1;
     void* aux;
     int tam;
-    int flag = 0;
+    int flag;
 
     if(pList!=NULL && pElement!=NULL)
     {
-        if(pList->size == pList->reservedSize)
-        {
-            aux = realloc(pList->pElements, sizeof(void*) * (pList->reservedSize + AL_INCREMENT));
-            if(aux!=NULL)
-            {
-                pList->pElements = aux;
-                pList->reservedSize+=AL_INCREMENT;
-            }
-            else
-            {
-                flag = 1;
-            }
-        }
-
+        flag = resizeUp(pList);
 
         if(flag==0)
         {
@@ -118,16 +105,19 @@ int al_deleteArrayList(ArrayList* pList)
 
     if(pList != NULL)
     {
-
         for(i=0; i<pList->size; i++)
         {
             free(pList->pElements+i);
         }
 
+        pList->size = 0;
+        pList->reservedSize = 0;
+
+        //CON ESTO SERIA SUFICIENTE?
+
         returnAux = 0;
     }
 
-    //VOLVER A PREGUNTAR QUE MAS TENGO QUE HACER
 
     return returnAux;
 }
@@ -248,11 +238,10 @@ int al_remove(ArrayList* pList,int index)
                 }
             }
 
-            //EN VEZ DE HACER TODO ESTE FOR PUEDO HACER UN CONTRACT. HAGO UN FREE DEL ELEMENTO Y UNA ESCALERITA QUE PASA TODO, Y LUEGO CON EL SIZE LO ACHICO Y LISTO
 
-            // USARLO PARA BAJAR EL SIZE pList->size -= 1;
+            free(pList->pElements+tam);
 
-            //UNA VEZ QUE PASE EL ELEMENTO A LO ULTIMO, BAJARIA EN 1 EL SIZE PERO QUEDARIA LA MEMORIA IGUAL. COMO LA ELIMINO COMPLETAMENTE? PREGUNTAR SOBRE CONTRACT RESIZE
+            pList->size -= 1;
 
             returnAux = 0;
         }
@@ -284,8 +273,6 @@ int al_clear(ArrayList* pList)
 
         pList->size = 0;
         pList->reservedSize = AL_INITIAL_VALUE;
-
-        // PREGUNTAR CONTRACT ETC. (LO DEL INDICE)
 
         returnAux = 0;
     }
@@ -396,6 +383,10 @@ void* al_pop(ArrayList* pList,int index)
                     break;
                 }
             }
+
+             free(pList->pElements+tam);
+
+            pList->size -= 1;
         }
     }
 
@@ -455,9 +446,24 @@ int al_sort(ArrayList* this, int (*pFunc)(void*,void*), int order)
  * \return int Return (-1) if Error [pList is NULL pointer or if can't allocate memory]
  *                  - (0) if ok
  */
-int resizeUp(ArrayList* this)
+int resizeUp(ArrayList* pList)
 {
     int returnAux = -1;
+
+    if(pList != NULL)
+    {
+        void* aux;
+         if(pList->size == pList->reservedSize)
+        {
+            aux = realloc(pList->pElements, sizeof(void*) * (pList->reservedSize + AL_INCREMENT));
+            if(aux!=NULL)
+            {
+                pList->pElements = aux;
+                pList->reservedSize+=AL_INCREMENT;
+                returnAux = 0;
+            }
+        }
+    }
 
     return returnAux;
 
@@ -469,7 +475,7 @@ int resizeUp(ArrayList* this)
  * \return int Return (-1) if Error [pList is NULL pointer or invalid index]
  *                  - ( 0) if Ok
  */
-int expand(ArrayList* this,int index)
+int expand(ArrayList* pList,int index)
 {
     int returnAux = -1;
 
@@ -482,11 +488,35 @@ int expand(ArrayList* this,int index)
  * \return int Return (-1) if Error [pList is NULL pointer or invalid index]
  *                  - ( 0) if Ok
  */
-int contract(ArrayList* this,int index)
+int contract(ArrayList* pList,int index)
 {
     int returnAux = -1;
+    int i,j;
+    void* aux;
+    int tam;
 
-    //VER AL_POP QUE EXPLICO COMO HACERLO
+    if(pList != NULL)
+    {
+        tam = pList->size;
+        if(index <= tam && index > -1)
+        {
+            for(i=index;i=(tam-1);i++)
+            {
+                for(j=(i+1);j=tam;j++)
+                {
+                    aux = *(pList->pElements+i);
+                    *(pList->pElements+i) = *(pList->pElements+j);
+                    *(pList->pElements+j) = aux;
+                    break;
+                }
+            }
+
+             free(pList->pElements+tam);
+             pList->size -= 1;
+             returnAux = 0;
+        }
+
+    }
 
     return returnAux;
 }
@@ -495,5 +525,19 @@ int contract(ArrayList* this,int index)
 
 int resizeDown(ArrayList* pList)
 {
-    //UN RESIZE DOWN DEL ESPACIO EN MEMORIA RESERVADO. ASI NO QUEDA BASURA
+    int returnAux = -1;
+    if(pList != NULL)
+    {
+        void* aux;
+        int tamSize = pList->size;
+        int tamReservado = pList->reservedSize;
+        returnAux = 0;
+
+        if( (tamReservado - tamSize)> 10 )
+        {
+            pList->reservedSize = (tamSize + AL_INCREMENT);
+        }
+    }
+
+    return returnAux;
 }
