@@ -101,19 +101,11 @@ int al_add(ArrayList* pList, void* pElement)
 int al_deleteArrayList(ArrayList* pList)
 {
     int returnAux = -1;
-    int i;
+
 
     if(pList != NULL)
     {
-        for(i=0; i<pList->size; i++)
-        {
-            free(pList->pElements+i);
-        }
 
-        pList->size = 0;
-        pList->reservedSize = 0;
-
-        //CON ESTO SERIA SUFICIENTE?
 
         returnAux = 0;
     }
@@ -217,37 +209,14 @@ int al_set(ArrayList* pList, int index,void* pElement)
 int al_remove(ArrayList* pList,int index)
 {
     int returnAux = -1;
-    int i,j;
-    void* aux;
-    aux = (void*) malloc(sizeof(void));
-    int tam;
+    int flagContract;
 
-    if(pList != NULL)
+    flagContract = contract(pList,index);
+
+    if(flagContract == 0)
     {
-        tam = pList->size;
-        if(index <= tam && index > -1)
-        {
-            for(i=index;i=(tam-1);i++)
-            {
-                for(j=(i+1);j=tam;j++)
-                {
-                    aux = *(pList->pElements+i);
-                    *(pList->pElements+i) = *(pList->pElements+j);
-                    *(pList->pElements+j) = aux;
-                    break;
-                }
-            }
-
-
-            free(pList->pElements+tam);
-
-            pList->size -= 1;
-
-            returnAux = 0;
-        }
+        returnAux = 0;
     }
-
-
 
     return returnAux;
 }
@@ -303,9 +272,33 @@ ArrayList* al_clone(ArrayList* this)
  * \return int Return (-1) if Error [pList or pElement are NULL pointer or invalid index]
  *                  - ( 0) if Ok
  */
-int al_push(ArrayList* this, int index, void* pElement)
+int al_push(ArrayList* pList, int index, void* pElement)
 {
     int returnAux = -1;
+    int flag, tam;
+
+    if(pList != NULL)
+    {
+        tam = pList->size;
+
+        if(index<=tam && index > -1)
+        {
+           if(index == tam)
+            {
+                flag = al_add(pList, pElement);
+
+            }else
+            {
+                flag = expand(pList,index);
+            }
+
+            if(flag == 0)
+                {
+                    returnAux = 0;
+                }
+        }
+    }
+
 
     return returnAux;
 }
@@ -361,32 +354,22 @@ int al_isEmpty(ArrayList* pList)
 void* al_pop(ArrayList* pList,int index)
 {
     void* returnAux = NULL;
-    returnAux = (void*) malloc(sizeof(void));
-    int i,j;
     void* aux;
-    aux = (void*) malloc(sizeof(void));
     int tam;
+    int flagRemove;
 
     if(pList != NULL)
     {
         tam = pList->size;
         if(index <= tam && index > -1)
         {
-            returnAux = *(pList->pElements+index);
-            for(i=index;i=(tam-1);i++)
-            {
-                for(j=(i+1);j=tam;j++)
-                {
-                    aux = *(pList->pElements+i);
-                    *(pList->pElements+i) = *(pList->pElements+j);
-                    *(pList->pElements+j) = aux;
-                    break;
-                }
-            }
+            aux = *(pList->pElements+index);
+            flagRemove = al_remove(pList,index);
+        }
 
-             free(pList->pElements+tam);
-
-            pList->size -= 1;
+        if(flagRemove == 0)
+        {
+            returnAux = aux;
         }
     }
 
@@ -478,6 +461,27 @@ int resizeUp(ArrayList* pList)
 int expand(ArrayList* pList,int index)
 {
     int returnAux = -1;
+    int flagResizeUp;
+    int i,j;
+    void* aux;
+
+    if(pList != NULL)
+    {
+        flagResizeUp = resizeUp(pList);
+        int tam = pList->size;
+        if(flagResizeUp == 0)
+        {
+            if(index<=tam && index > -1)
+            {
+              pList->size += 1;
+              for(i=tam;i=index;i--)
+              {
+                al_set(pList,i,*(pList->pElements+(i-1)));
+              }
+              returnAux = 0;
+            }
+        }
+    }
 
     return returnAux;
 }
@@ -514,6 +518,7 @@ int contract(ArrayList* pList,int index)
              free(pList->pElements+tam);
              pList->size -= 1;
              returnAux = 0;
+             resizeDown(pList);
         }
 
     }
