@@ -444,11 +444,30 @@ void* al_pop(ArrayList* pList,int index)
  * \return int Return (NULL) if Error [pList is NULL pointer or invalid 'from' or invalid 'to']
  *                  - ( pointer to new array) if Ok
  */
-ArrayList* al_subList(ArrayList* this,int from,int to)
+ArrayList* al_subList(ArrayList* pList,int from,int to)
 {
-    void* returnAux = NULL;
+    //void* returnAux = NULL; El ejercicio arranco asi, pero creo que se deberia hacer asi ->
+    ArrayList* pList2 = NULL;
+    int i,j,tam;
 
-    return returnAux ;
+    if(pList != NULL)
+    {
+        pList2 = al_newArrayList();
+        tam = to-from; // COMO EL TO ES EXCLUSIVO, EL TO-FROM COINCIDE CON EL TAMAÑO QUE TENDRA EL NUEVO ARRAY.
+        pList2->size = tam;
+        pList->reservedSize = tam + AL_INCREMENT;
+
+        for(i=from;i<to;i++)
+        {
+           for(j=0;i<tam;j++)
+           {
+                *(pList2->pElements+j) = *(pList->pElements+i);
+                break;
+           }
+        }
+    }
+
+    return pList2;
 }
 
 
