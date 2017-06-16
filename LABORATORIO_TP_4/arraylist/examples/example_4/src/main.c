@@ -28,7 +28,7 @@
 
 int main(void)
 {
-        startTesting(1);
+        /*startTesting(1);
         startTesting(2);
         startTesting(3);
         startTesting(4);
@@ -39,7 +39,7 @@ int main(void)
         startTesting(9);
         startTesting(10);
         startTesting(11);
-        startTesting(12);
+        startTesting(12);*/
         startTesting(13);
         startTesting(14);
         startTesting(15);

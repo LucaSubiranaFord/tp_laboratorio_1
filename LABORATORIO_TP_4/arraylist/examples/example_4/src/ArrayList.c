@@ -352,9 +352,25 @@ int al_push(ArrayList* pList, int index, void* pElement)
  * \param pElement void* Pointer to element
  * \return int Return (-1) if Error [pList or pElement are NULL pointer] - (index to element) if Ok
  */
-int al_indexOf(ArrayList* this, void* pElement)
+int al_indexOf(ArrayList* pList, void* pElement)
 {
     int returnAux = -1;
+    int i, tam;
+
+    if(pList != NULL)
+    {
+        tam = pList->size;
+
+        for(i=0;i<tam;i++)
+        {
+            if( *(pList->pElements+i) == pElement )
+            {
+                returnAux = i;
+                break;
+            }
+        }
+    }
+
 
     return returnAux;
 }
@@ -445,9 +461,46 @@ ArrayList* al_subList(ArrayList* this,int from,int to)
  * \return int Return (-1) if Error [pList or pList2 are NULL pointer]
  *                  - (0) if Not contains All - (1) if is contains All
  */
-int al_containsAll(ArrayList* this,ArrayList* this2)
+int al_containsAll(ArrayList* pList,ArrayList* pList2)
 {
     int returnAux = -1;
+    int i, j, flag, cont = 0, tam, tam2, tamT;
+
+
+    if(pList != NULL && pList2 != NULL)
+    {
+        tam = pList->size;
+        tam2 = pList2->size;
+
+        /*if(tam > tam2)
+        {
+            tamT = tam;
+        }else
+        {
+            tamT = tam2;     //TENDRIA QUE APLICAR ESTO SI ES MAS GRANDE?
+        }*/
+
+        for(i=0;i<tam;i++)
+        {
+            for(j=0;i<tam2;i++)
+            {
+                if( *(pList->pElements+i) == *(pList2->pElements+j) )
+                {
+                    cont++;
+                    break;
+                }
+            }
+        }
+
+        if(cont == tam2)
+        {
+            returnAux = 1;
+        }else
+        {
+            returnAux = 0;
+        }
+    }
+
 
     return returnAux;
 }
