@@ -82,12 +82,10 @@ int al_add(ArrayList* pList, void* pElement)
         if(flag==0)
         {
             tam = pList->size;
-            pList->pElements[tam]=pElement;
+            pList->pElements[tam]=pElement; // NO TENDRIA QUE SER :  *(PLIST->PELEMENTS+TAM) = PELEMENT ?
             pList->size++;
             returnAux = 0;
         }
-
-
     }
     return returnAux;
 
@@ -106,6 +104,9 @@ int al_deleteArrayList(ArrayList* pList)
     if(pList != NULL)
     {
 
+        free(pList->pElements);
+
+        free(pList);
 
         returnAux = 0;
     }
@@ -187,7 +188,8 @@ int al_contains(ArrayList* pList, void* pElement)
         if(flag == 1)
         {
             returnAux = 1;
-        }else
+        }
+        else
         {
             returnAux = 0;
         }
@@ -283,22 +285,23 @@ ArrayList* al_clone(ArrayList* pList)
 {
     ArrayList* returnAux = NULL;
     ArrayList* aux;
-    aux = al_newArrayList();
-    int i;
-
+    int tam,i, flagAdd;
 
     if(pList != NULL)
     {
-        aux->size = pList->size;
-        aux->reservedSize = pList->reservedSize;
+        aux = al_newArrayList();
+        tam = pList->size;
 
-        for(i=0;i<aux->size;i++)
+        for(i=0; i<tam; i++)
         {
-            *(aux->pElements+i) = *(pList->pElements+i);
+            flagAdd = al_add(aux,al_get(pList,i));
         }
-        returnAux = aux;
-    }
 
+        if(flagAdd == 0)
+        {
+            returnAux = aux;
+        }
+    }
 
     return returnAux;
 }
@@ -316,28 +319,30 @@ ArrayList* al_clone(ArrayList* pList)
 int al_push(ArrayList* pList, int index, void* pElement)
 {
     int returnAux = -1;
-    int flag, tam;
+    int flag = 1, tam;
 
-    if(pList != NULL)
+    if(pList != NULL && pElement != NULL)
     {
         tam = pList->size;
-
         if(index<=tam && index > -1)
         {
-            if(index == tam)
+            if(index >= tam)
             {
-                flag = al_add(pList, pElement);
-
+                //flag = al_add(pList, pElement);
+                al_add(pList, pElement);
+                returnAux = 0;
             }
             else
             {
-                flag = expand(pList,index);
-            }
-
-            if(flag == 0)
-            {
+                //flag = expand(pList,index);
+                expand(pList,index);
                 returnAux = 0;
             }
+
+            /*  if(flag == 0)
+              {
+                  returnAux = 0;
+              }*/
         }
     }
 
@@ -361,7 +366,7 @@ int al_indexOf(ArrayList* pList, void* pElement)
     {
         tam = pList->size;
 
-        for(i=0;i<tam;i++)
+        for(i=0; i<tam; i++)
         {
             if( *(pList->pElements+i) == pElement )
             {
@@ -415,7 +420,7 @@ void* al_pop(ArrayList* pList,int index)
     void* returnAux = NULL;
     void* aux;
     int tam;
-    int flagRemove;
+    int flagRemove = 1;
 
     if(pList != NULL)
     {
@@ -431,7 +436,6 @@ void* al_pop(ArrayList* pList,int index)
             returnAux = aux;
         }
     }
-
     return returnAux;
 }
 
@@ -446,32 +450,30 @@ void* al_pop(ArrayList* pList,int index)
  */
 ArrayList* al_subList(ArrayList* pList,int from,int to)
 {
-    //void* returnAux = NULL; El ejercicio arranco asi, pero creo que se deberia hacer asi ->
     ArrayList* pList2 = NULL;
-    int i,j,tam;
+    int i,tam;
 
-    if(pList != NULL)
+    if(pList != NULL && from<to)
     {
-        pList2 = al_newArrayList();
-        tam = to-from; // COMO EL TO ES EXCLUSIVO, EL TO-FROM COINCIDE CON EL TAMAÑO QUE TENDRA EL NUEVO ARRAY.
-        pList2->size = tam;
-        pList->reservedSize = tam + AL_INCREMENT;
+        tam = pList->size;
 
-        for(i=from;i<to;i++)
+        if( to>0 && to<=tam)
         {
-           for(j=0;i<tam;j++)
-           {
-                *(pList2->pElements+j) = *(pList->pElements+i);
-                break;
-           }
+            if(from>-1 && from<tam)
+            {
+                pList2 = al_newArrayList();
+
+                for(i=from; i<to; i++)
+                {
+                    al_add(pList2,al_get(pList,i));
+                }
+            }
+
         }
     }
 
     return pList2;
 }
-
-
-
 
 
 /** \brief Returns true if pList list contains all of the elements of pList2
@@ -483,41 +485,24 @@ ArrayList* al_subList(ArrayList* pList,int from,int to)
 int al_containsAll(ArrayList* pList,ArrayList* pList2)
 {
     int returnAux = -1;
-    int i, j, flag, cont = 0, tam, tam2, tamT;
+    int i,flag, tam2;
 
 
     if(pList != NULL && pList2 != NULL)
     {
-        tam = pList->size;
         tam2 = pList2->size;
 
-        /*if(tam > tam2)
+        returnAux = 1;
+        for(i=0; i<tam2; i++)
         {
-            tamT = tam;
-        }else
-        {
-            tamT = tam2;     //TENDRIA QUE APLICAR ESTO SI ES MAS GRANDE?
-        }*/
-
-        for(i=0;i<tam;i++)
-        {
-            for(j=0;i<tam2;i++)
+            flag = al_contains(pList, al_get(pList2, i));
+            if(flag == 0)
             {
-                if( *(pList->pElements+i) == *(pList2->pElements+j) )
-                {
-                    cont++;
-                    break;
-                }
+                returnAux = 0;
+                break;
             }
         }
 
-        if(cont == tam2)
-        {
-            returnAux = 1;
-        }else
-        {
-            returnAux = 0;
-        }
     }
 
 
@@ -531,7 +516,7 @@ int al_containsAll(ArrayList* pList,ArrayList* pList2)
  * \return int Return (-1) if Error [pList or pFunc are NULL pointer]
  *                  - (0) if ok
  */
-int al_sort(ArrayList* this, int (*pFunc)(void*,void*), int order)
+int al_sort(ArrayList* pList, int (*pFunc)(void*,void*), int order)
 {
     int returnAux = -1;
 
@@ -620,7 +605,7 @@ int expand(ArrayList* pList,int index)
 int contract(ArrayList* pList,int index)
 {
     int returnAux = -1;
-    int i,j;
+    int i;
     void* aux;
     int tam;
 
@@ -629,15 +614,12 @@ int contract(ArrayList* pList,int index)
         tam = pList->size;
         if(index <= tam && index > -1)
         {
-            for(i=index; i=(tam-1); i++)
+            for(i=index; i=tam; i++)
             {
-                for(j=(i+1); j=tam; j++)
-                {
-                    aux = *(pList->pElements+i);
-                    *(pList->pElements+i) = *(pList->pElements+j);
-                    *(pList->pElements+j) = aux;
-                    break;
-                }
+                aux = *(pList->pElements+i);
+                *(pList->pElements+i) = *(pList->pElements+(i+1));
+                *(pList->pElements+(i+1)) = aux;
+                break;
             }
 
             free(pList->pElements+tam);
