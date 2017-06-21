@@ -1,0 +1,27 @@
+# depslib dependency file v1.0
+1497994680 source:c:\users\pc\desktop\tp_3_cascara\arraylist.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"ArrayList.h"
+	"funciones.h"
+
+1497993455 c:\users\pc\desktop\tp_3_cascara\arraylist.h
+
+1497998639 c:\users\pc\desktop\tp_3_cascara\funciones.h
+	"ArrayList.h"
+
+1497996734 source:c:\users\pc\desktop\tp_3_cascara\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"funciones.h"
+	"ArrayList.h"
+
+1497996017 source:c:\users\pc\desktop\tp_3_cascara\funciones.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"funciones.h"
+	"ArrayList.h"
+

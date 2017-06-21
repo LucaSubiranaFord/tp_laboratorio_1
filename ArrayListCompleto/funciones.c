@@ -1,316 +1,191 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "ArrayList.h"
 #include "funciones.h"
+#include "ArrayList.h"
 
 
-generarBin(ArrayList* lista, FILE* bin)
+generarPaginaWeb(ArrayList* lista)
 {
-    int i;
-    eMovie* aux;
-    bin = fopen("peliculas.dat","wb");
-
-    if(bin != NULL)
-    {
-        for(i=0;i<al_len(lista);i++)
-        {
-            aux = newMovie();
-            aux = al_get(lista,i);
-            fwrite(aux, sizeof(eMovie),al_len(lista),bin);
-        }
-        printf("Archivo generado correctamente!\n");
-    }else
-    {
-        printf("Ha ocurrido un error!\n");
-    }
+    FILE* bin;
+    bin = fopen("bin.dat", "wb");
 }
 
-agregarPelicula(ArrayList* lista,FILE* bin)
+
+modificarPelicula(ArrayList* lista)
 {
-    eMovie* auxMovie;
-    auxMovie = newMovie();
     char buffer[200];
-    int auxPuntaje;
+    int i;
+    int aux=1;
+    eMovie* auxM;
+    auxM = (eMovie*) malloc(sizeof(eMovie));
 
-    printf("Titulo de la pelicula: \n");
+
+    printf("Ingrese el titulo de la pelicula que desee modificar: \n");
     fflush(stdin);
-    gets( buffer );
+    gets(buffer);
 
-    while((strlen(buffer) > 19 ))
+    while(strlen(buffer)>19)
     {
-        printf("La pelicula debe contener menos de 20 caracteres, ingrese un titulo diferente: \n");
+        printf("El titulo de la pelicula debe contener como maximo 20 caractéres: \n");
         fflush(stdin);
         gets(buffer);
     }
 
     strupr(buffer);
-    strcpy(auxMovie->titulo,buffer);
 
-    printf("Ingrese el genero de la pelicula: \n");
-    fflush(stdin);
-    gets(buffer);
-
-    while((strlen(buffer) > 19 ))
+    for(i=0;i<al_len(lista);i++)
     {
-        printf("El genero debe contener menos de 20 caracteres, ingrese uno diferente: \n");
-        fflush(stdin);
-        gets(buffer);
-    }
+        auxM = al_get(lista,i);
 
-    strcpy( auxMovie->genero, buffer );
-
-
-
-    printf("Ingrese la descripcion de la pelicula: \n");
-    fflush(stdin);
-    gets(buffer);
-
-    while((strlen(buffer) > 49 ))
-    {
-        printf("La descripcion debe contener menos de 50 caracteres, ingrese una diferente: \n");
-        gets(buffer);
-    }
-
-    strcpy( auxMovie->descripcion, buffer );
-
-
-    printf("Ingrese la duracion de la pelicula en minutos: \n");
-    scanf("%d",& ( auxMovie->duracion )  );
-
-    printf("Ingrese el puntaje de la pelicula(0 minimo, 10 puntaje maximo): \n");
-    scanf("%d", &auxPuntaje);
-
-    while(auxPuntaje<0 || auxPuntaje>10)
-    {
-        printf("El puntaje debe ser entre 0 y 10!:  \n");
-        scanf("%d", &auxPuntaje);
-    }
-
-    auxMovie->puntaje = auxPuntaje;
-
-
-
-    printf("Ingrese el link con la imagen de la pelicula: \n");
-    fflush(stdin);
-    gets(buffer);
-
-    while((strlen(buffer) > 49 ))
-    {
-        printf("El link debe contener menos de 50 caracteres, ingrese uno diferente: \n");
-        fflush(stdin);
-        gets(buffer);
-    }
-
-
-    strcpy( auxMovie->linkImagen, buffer );
-
-    al_add(lista,auxMovie);
-    generarBin(lista,bin);
-
-    printf("Pelicula añadida correctamente! \n");
-
-}
-
-eMovie* newMovie()
-{
-    eMovie* aux;
-    aux = (eMovie*) malloc (sizeof(eMovie));
-    return aux;
-}
-
-borrarPelicula(ArrayList* lista,FILE* bin)
-{
-    int i,j;
-    eMovie* aux;
-    char auxNombre[20];
-    int existePelicula = 0;
-    int auxI;
-
-    aux = newMovie();
-
-    while(existePelicula == 0)
-    {
-        printf("Ingrese el titulo que desee eliminar: \n");
-        fflush(stdin);
-        gets(auxNombre);
-        strupr(auxNombre);
-        for(i=0; i<al_len(lista); i++)
+        if(strcmp(buffer,auxM->titulo)==0)
         {
-            aux = al_get(lista,i);
-            if(strcmp(aux->titulo,auxNombre) == 0)
-            {
-                auxI = i;
-                existePelicula = 1;
-                break;
-            }
-        }
-
-        if(existePelicula == 0)
-        {
-            printf("Esa pelicula no existe!\n");
+            auxM = agregarPelicula();
+            al_set(lista,i,auxM);
+            printf("Pelicula modificada correctamente!\n");
+            aux = 0;
+            break;
         }
     }
 
-    al_remove(lista, auxI);
-    generarBin(lista,bin);
+    if(aux == 1)
+    {
+        printf("La pelicula no fue encontrada! \n");
+    }
+
 
 }
 
 
-modificarPelicula(ArrayList* lista,FILE* bin)
+
+eliminarPelicula(ArrayList* lista)
 {
-    int existePelicula = 0;
-    int auxI;
-    int i;
-    eMovie* auxMovie;
-    auxMovie = newMovie();
-    eMovie* aux;
     char buffer[200];
-    int auxPuntaje;
+    int i;
+    int aux=1;
+    eMovie* auxM;
+    auxM = (eMovie*) malloc(sizeof(eMovie));
 
 
-    while(existePelicula == 0)
+    printf("Ingrese el titulo de la pelicula que desee eliminar: \n");
+    fflush(stdin);
+    gets(buffer);
+
+    while(strlen(buffer)>19)
     {
-        printf("Ingrese el titulo que desea modificar: \n");
+        printf("El titulo de la pelicula debe contener como maximo 20 caractéres: \n");
         fflush(stdin);
         gets(buffer);
+    }
+
+    strupr(buffer);
+
+    for(i=0;i<al_len(lista);i++)
+    {
+        auxM = al_get(lista,i);
+
+        if(strcmp(buffer,auxM->titulo)==0)
+        {
+            al_remove(lista,i);
+            printf("Pelicula eliminada correctamente!\n");
+            aux = 0;
+            break;
+        }
+    }
+
+    if(aux == 1)
+    {
+        printf("La pelicula no fue encontrada! \n");
+    }
+
+}
+
+eMovie* agregarPelicula(void)
+{
+    int returnAux = 0;
+    eMovie* auxMovie;
+    auxMovie = (eMovie*) malloc (sizeof(eMovie));
+    char buffer[200];
+    int aux;
+
+
+        printf("Ingrese el titulo de la pelicula\n");
+        fflush(stdin);
+        gets(buffer);
+
+        while(strlen(buffer)>19)
+        {
+            printf("El titulo debe contener como maximo 20 caractéres\n");
+            fflush(stdin);
+            gets(buffer);
+        }
+
         strupr(buffer);
-        for(i=0; i<al_len(lista); i++)
+
+        strcpy(auxMovie->titulo,buffer);
+
+
+        printf("Ingrese el genero de la pelicula\n");
+        fflush(stdin);
+        gets(buffer);
+
+        while(strlen(buffer)>19)
         {
-            aux = newMovie();
-            aux = al_get(lista,i);
-            if(strcmp(aux->titulo,buffer) == 0)
-            {
-                auxI = i;
-                existePelicula = 1;
-                break;
-            }
+            printf("El genero debe contener como maximo 20 caractéres\n");
+            fflush(stdin);
+            gets(buffer);
         }
 
-        if(existePelicula == 0)
+        strcpy(auxMovie->genero,buffer);
+
+
+        printf("Ingrese la descripcion de la pelicula\n");
+        fflush(stdin);
+        gets(buffer);
+
+        while(strlen(buffer)>49)
         {
-            printf("Esa pelicula no existe!\n");
+            printf("La descripcion debe contener como maximo 50 caractéres\n");
+            fflush(stdin);
+            gets(buffer);
         }
-    }
+
+        strcpy(auxMovie->descripcion,buffer);
 
 
-    printf("Titulo nuevo de la pelicula: \n");
-    fflush(stdin);
-    gets( buffer );
-    strupr(buffer);
 
-    while((strlen(buffer) > 19 ))
-    {
-        printf("La pelicula debe contener menos de 20 caracteres, ingrese un titulo diferente: \n");
+        printf("Ingrese el link de la pelicula\n");
         fflush(stdin);
         gets(buffer);
-    }
 
-    strupr(buffer);
-    strcpy(auxMovie->titulo,buffer);
+        while(strlen(buffer)>49)
+        {
+            printf("El link debe contener como maximo 50 caractéres\n");
+            fflush(stdin);
+            gets(buffer);
+        }
 
-    printf("Ingrese el nuevo genero de la pelicula: \n");
-    fflush(stdin);
-    gets(buffer);
+        strcpy(auxMovie->linkImagen,buffer);
 
-    while((strlen(buffer) > 19 ))
-    {
-        printf("El genero debe contener menos de 20 caracteres, ingrese uno diferente: \n");
-        fflush(stdin);
-        gets(buffer);
-    }
+        printf("Ingrese la duracion de la pelicula en minutos: \n");
+        scanf("%d", &(auxMovie->duracion));
 
-    strcpy( auxMovie->genero, buffer );
+        printf("Ingrese el puntaje de la pelicula\n");
+        scanf("%d",&aux);
 
-
-
-    printf("Ingrese la nueva descripcion de la pelicula: \n");
-    fflush(stdin);
-    gets(buffer);
-
-    while((strlen(buffer) > 49 ))
-    {
-        printf("La descripcion debe contener menos de 50 caracteres, ingrese una diferente: \n");
-        gets(buffer);
-    }
-
-    strcpy( auxMovie->descripcion, buffer );
+        while(aux<0 || aux>10)
+        {
+            printf("El puntaje debe estar entre 0 y 10\n");
+            scanf("%d",&aux);
+        }
 
 
-    printf("Ingrese la nueva duracion de la pelicula en minutos: \n");
-    scanf("%d",& ( auxMovie->duracion )  );
-
-    printf("Ingrese el nuevo puntaje de la pelicula(0 minimo, 10 puntaje maximo): \n");
-    scanf("%d", &auxPuntaje);
-
-    while(auxPuntaje<0 || auxPuntaje>10)
-    {
-        printf("El puntaje debe ser entre 0 y 10!:  \n");
-        scanf("%d", &auxPuntaje);
-    }
-
-    auxMovie->puntaje = auxPuntaje;
+    auxMovie->puntaje = aux;
 
 
 
-    printf("Ingrese el nuevo link con la imagen de la pelicula: \n");
-    fflush(stdin);
-    gets(buffer);
 
-    while((strlen(buffer) > 49 ))
-    {
-        printf("El link debe contener menos de 50 caracteres, ingrese uno diferente: \n");
-        fflush(stdin);
-        gets(buffer);
-    }
 
-    strcpy( auxMovie->linkImagen, buffer );
 
-    al_set(lista,auxI, auxMovie);
-    generarBin(lista,bin);
-
+    return auxMovie;
 }
-
-
-generarPagina(ArrayList* lista)
-{
-    int i;
-    eMovie* aux;
-    FILE* archivo;
-
-    archivo = fopen("Peliculas.html","wb+");
-
-    if(archivo!=NULL)
-    {
-         for(i=0; i<al_len(lista); i++)
-    {
-        aux = newMovie();
-        aux = al_get(lista,i);
-        fprintf(archivo,"<article class='col-md-4 article-intro'>\
-                <a href='#'>\
-                <img class='img-responsive img-rounded' src='%s'\
-                alt=''>\
-                </a>\
-                <h3>\
-                <a href='#'>%s</a>\
-                </h3>\
-                <ul>\
-                <li>Género:%s</li>\
-                <li>Puntaje:%d</li>\
-                <li>Duración:%d</li>\
-                </ul>\
-                <p>%s</p>\
-                </article>",aux->linkImagen, aux->titulo, aux->genero, aux->puntaje, aux->duracion, aux->descripcion);
-    }
-
-    printf("Pagina generada correctamente! \n");
-    fclose(archivo);
-    }else
-    {
-        printf("Error al abrir el archivo \n");
-    }
-
-
-}
-

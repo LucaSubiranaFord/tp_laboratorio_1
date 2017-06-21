@@ -1,18 +1,20 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "ArrayList.h"
+#include <string.h>
 #include "funciones.h"
+#include "ArrayList.h"
+
+
 
 int main()
 {
     char seguir='s';
     int opcion=0;
+    int aux;
     ArrayList* lista;
-    eMovie* aux;
+    eMovie* movie;
+
     lista = al_newArrayList();
-    int i;
-    int flag;
-    FILE* bin;
 
     while(seguir=='s')
     {
@@ -20,35 +22,35 @@ int main()
         printf("2- Borrar pelicula\n");
         printf("3- Modificar pelicula\n");
         printf("4- Generar pagina web\n");
-        printf("5- Mostrar todo\n");
+        printf("5- Salir\n");
 
         scanf("%d",&opcion);
 
         switch(opcion)
         {
             case 1:
-                system("cls");
-                agregarPelicula(lista, bin);
+               movie = agregarPelicula();
+               aux = al_add(lista,movie);
+               if(aux == 0)
+               {
+                  printf("%s -- %d\n", movie->titulo, movie->puntaje);
+               }
+               else
+               {
+                   printf("La pelicula no ha podido agregarse! \n");
+               }
+
                 break;
             case 2:
-                system("cls");
-                borrarPelicula(lista, bin);
+                eliminarPelicula(lista);
                 break;
             case 3:
-                system("cls");
-                modificarPelicula(lista, bin);
+                modificarPelicula(lista);
                break;
-               case 4:
-                   system("cls");
-                   generarPagina(lista);
+            case 4:
                break;
             case 5:
-                system("cls");
-                flag = al_len(lista);
-                printf("%d\n", flag);
-                break;
-            default:
-                printf("Ingreso una opcion incorrecta! \n");
+                seguir = 'n';
                 break;
         }
     }
