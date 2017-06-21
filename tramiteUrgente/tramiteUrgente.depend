@@ -1,0 +1,27 @@
+# depslib dependency file v1.0
+1498078434 source:c:\users\pc\desktop\tramiteurgente\arraylist.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"ArrayList.h"
+
+1497993455 c:\users\pc\desktop\tramiteurgente\arraylist.h
+
+1498082900 source:c:\users\pc\desktop\tramiteurgente\fun.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"ArrayList.h"
+	"fun.h"
+
+1498083135 c:\users\pc\desktop\tramiteurgente\fun.h
+	<stdio.h>
+	<stdlib.h>
+	"ArrayList.h"
+
+1498083135 source:c:\users\pc\desktop\tramiteurgente\main.c
+	<stdio.h>
+	<stdlib.h>
+	"ArrayList.h"
+	"fun.h"
+
