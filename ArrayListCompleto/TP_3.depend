@@ -1,0 +1,191 @@
+# depslib dependency file v1.0
+1463488858 source:k:\pruebastatic\main.c
+	<stdio.h>
+	<stdlib.h>
+	"ArrayList.h"
+
+1463488858 .h"
+
+1463488500 k:\pruebastatic\arraylist.h
+
+1463505889 source:/home/mauro/Descargas/ARRAY_LIB/LINUX_64/main.c
+	<stdio.h>
+	<stdlib.h>
+	"ArrayList.h"
+	"Employee.h"
+
+1463505431 /home/mauro/Descargas/ARRAY_LIB/LINUX_64/ArrayList.h
+
+1463505760 source:/home/mauro/Descargas/ARRAY_LIB/LINUX_64/Employee.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"Employee.h"
+
+1463505789 /home/mauro/Descargas/ARRAY_LIB/LINUX_64/Employee.h
+
+1464384445 source:c:\users\profesor\desktop\example4_static_lib\win_64\employee.c
+	<stdio.h>
+	<stdlib.h>
+	"ArrayList.h"
+	"Employee.h"
+
+1463604778 c:\users\profesor\desktop\example4_static_lib\win_64\arraylist.h
+
+1464384298 c:\users\profesor\desktop\example4_static_lib\win_64\employee.h
+
+1464384349 source:c:\users\profesor\desktop\example4_static_lib\win_64\main.c
+	<stdio.h>
+	<stdlib.h>
+	"ArrayList.h"
+	"Employee.h"
+
+1464384471 source:c:\users\profesor\desktop\example4_static_lib\win_64\parser.c
+	<stdio.h>
+	<stdlib.h>
+	"ArrayList.h"
+	"Employee.h"
+
+1496371420 source:c:\users\pc\desktop\practica_pair_v1.2\windows_64\employee.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"ArrayList.h"
+	"Employee.h"
+
+1463604778 c:\users\pc\desktop\practica_pair_v1.2\windows_64\arraylist.h
+
+1496371075 c:\users\pc\desktop\practica_pair_v1.2\windows_64\employee.h
+
+1496371322 source:c:\users\pc\desktop\practica_pair_v1.2\windows_64\main.c
+	<stdio.h>
+	<stdlib.h>
+	"ArrayList.h"
+	"Employee.h"
+
+1464384470 source:c:\users\pc\desktop\practica_pair_v1.2\windows_64\parser.c
+	<stdio.h>
+	<stdlib.h>
+	"ArrayList.h"
+	"Employee.h"
+
+1496374176 source:c:\users\pc\desktop\tp_3_arraylist\windows_64\employee.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"ArrayList.h"
+	"Employee.h"
+
+1463604778 c:\users\pc\desktop\tp_3_arraylist\windows_64\arraylist.h
+
+1496374176 c:\users\pc\desktop\tp_3_arraylist\windows_64\employee.h
+
+1464384470 source:c:\users\pc\desktop\tp_3_arraylist\windows_64\parser.c
+	<stdio.h>
+	<stdlib.h>
+	"ArrayList.h"
+	"Employee.h"
+
+1496374071 source:c:\users\pc\desktop\tp_3_arraylist\windows_64\main.c
+	<stdio.h>
+	<stdlib.h>
+	"ArrayList.h"
+	"Employee.h"
+
+1496404973 source:c:\users\alumno\desktop\prueba array list\windows_64\employee.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"ArrayList.h"
+	"Employee.h"
+
+1496379275 c:\users\alumno\desktop\prueba array list\windows_64\arraylist.h
+
+1496405725 c:\users\alumno\desktop\prueba array list\windows_64\employee.h
+
+1496379275 source:c:\users\alumno\desktop\prueba array list\windows_64\parser.c
+	<stdio.h>
+	<stdlib.h>
+	"ArrayList.h"
+	"Employee.h"
+
+1496405734 source:c:\users\alumno\desktop\prueba array list\windows_64\main.c
+	<stdio.h>
+	<stdlib.h>
+	"ArrayList.h"
+	"Employee.h"
+
+1496406232 source:c:\users\alumno\desktop\tp_3_laboratorio_resuelto\prueba array list\windows_64\employee.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"ArrayList.h"
+	"Employee.h"
+
+1496379275 c:\users\alumno\desktop\tp_3_laboratorio_resuelto\prueba array list\windows_64\arraylist.h
+
+1496407700 c:\users\alumno\desktop\tp_3_laboratorio_resuelto\prueba array list\windows_64\employee.h
+
+1496406858 source:c:\users\alumno\desktop\tp_3_laboratorio_resuelto\prueba array list\windows_64\main.c
+	<stdio.h>
+	<stdlib.h>
+	"ArrayList.h"
+	"Employee.h"
+
+1496379275 source:c:\users\alumno\desktop\tp_3_laboratorio_resuelto\prueba array list\windows_64\parser.c
+	<stdio.h>
+	<stdlib.h>
+	"ArrayList.h"
+	"Employee.h"
+
+1496407964 source:c:\users\alumno\desktop\tp_3\main.c
+	<stdio.h>
+	<stdlib.h>
+	"ArrayList.h"
+	"funciones.h"
+
+1496379275 c:\users\alumno\desktop\tp_3\arraylist.h
+
+1496407700 c:\users\alumno\desktop\tp_3\funciones.h
+
+1496408154 source:c:\users\alumno\desktop\tp_3\funciones.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"ArrayList.h"
+	"funciones.h"
+
+1496422904 source:c:\users\pc\desktop\tp_3_laboratorio\main.c
+	<stdio.h>
+	<stdlib.h>
+	"ArrayList.h"
+	"funciones.h"
+
+1496394050 c:\users\pc\desktop\tp_3_laboratorio\arraylist.h
+
+1496422904 c:\users\pc\desktop\tp_3_laboratorio\funciones.h
+
+1496422711 source:c:\users\pc\desktop\tp_3_laboratorio\funciones.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"ArrayList.h"
+	"funciones.h"
+
+1497611022 source:c:\users\pc\desktop\tp_laboratorio_1-master\tp_3_laboratorio\funciones.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"ArrayList.h"
+	"funciones.h"
+
+1497611022 c:\users\pc\desktop\tp_laboratorio_1-master\tp_3_laboratorio\arraylist.h
+
+1497611022 c:\users\pc\desktop\tp_laboratorio_1-master\tp_3_laboratorio\funciones.h
+
+1497611022 source:c:\users\pc\desktop\tp_laboratorio_1-master\tp_3_laboratorio\main.c
+	<stdio.h>
+	<stdlib.h>
+	"ArrayList.h"
+	"funciones.h"
+
