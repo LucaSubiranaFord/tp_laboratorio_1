@@ -9,6 +9,7 @@ typedef struct
     int dni, turno;
 }ePersona;
 
+generarArchivo(FILE*, ArrayList*);
 int ordenarPorNombre(ArrayList*);
 mostrarPersona(int, ArrayList*);
 proximoCliente(ArrayList*, ArrayList*);

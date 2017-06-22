@@ -12,6 +12,8 @@ int main()
     listaAtendidos = al_newArrayList();
     lista = al_newArrayList();
 
+    FILE* arch;
+
     while(seguir == 0)
     {
         printf("1.- TRAMITE URGENTE\n");
@@ -41,7 +43,7 @@ int main()
             listar(lista);
             break;
         case 5:
-            ordenarPorNombre(lista);
+            generarArchivo(arch, lista);
             break;
         default:
             break;

@@ -5,6 +5,27 @@
 #include "fun.h"
 
 
+generarArchivo(FILE* arch, ArrayList* lista)
+{
+    ePersona* aux;
+    aux = newPersona();
+    int i;
+
+    arch = fopen("personas.csv", "w");
+
+    for(i=0;i<al_len(lista);i++)
+    {
+        aux = al_get(lista, i);
+        fprintf(arch, "%s,%d\n", aux->nombre, aux->dni);
+    }
+
+    fclose(arch);
+
+}
+
+
+
+
 int ordenarPorNombre(ArrayList* lista)
 {
     ePersona* aux;
