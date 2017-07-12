@@ -1,0 +1,67 @@
+# depslib dependency file v1.0
+1498589408 source:c:\users\catwoman\desktop\tarea\arraylist.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"ArrayList.h"
+
+1498589408 c:\users\catwoman\desktop\tarea\arraylist.h
+
+1498589408 source:c:\users\catwoman\desktop\tarea\funciones.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"funciones.h"
+
+1498589408 c:\users\catwoman\desktop\tarea\funciones.h
+
+1498589594 source:c:\users\catwoman\desktop\tarea\main.c
+	<stdio.h>
+	<stdlib.h>
+	"ABM.h"
+	"funciones.h"
+	"ArrayList.h"
+
+1498589408 c:\users\catwoman\desktop\tarea\abm.h
+	"ArrayList.h"
+
+1498591806 source:c:\users\catwoman\desktop\tarea\abm.c
+	<stdio.h>
+	<stdlib.h>
+	"ABM.h"
+	"funciones.h"
+	"ArrayList.h"
+
+1498589410 source:c:\users\pc\desktop\tarea\arraylist.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"ArrayList.h"
+
+1498589410 c:\users\pc\desktop\tarea\arraylist.h
+
+1498589410 source:c:\users\pc\desktop\tarea\funciones.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"funciones.h"
+
+1498589410 c:\users\pc\desktop\tarea\funciones.h
+
+1498589596 source:c:\users\pc\desktop\tarea\main.c
+	<stdio.h>
+	<stdlib.h>
+	"ABM.h"
+	"funciones.h"
+	"ArrayList.h"
+
+1498589410 c:\users\pc\desktop\tarea\abm.h
+	"ArrayList.h"
+
+1499726612 source:c:\users\pc\desktop\tarea\abm.c
+	<stdio.h>
+	<stdlib.h>
+	"ABM.h"
+	"funciones.h"
+	"ArrayList.h"
+

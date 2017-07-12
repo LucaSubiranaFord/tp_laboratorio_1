@@ -1,0 +1,26 @@
+# depslib dependency file v1.0
+1499822670 source:c:\users\pc\desktop\facebook\arraylist.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"ArrayList.h"
+
+1498078778 c:\users\pc\desktop\facebook\arraylist.h
+
+1499822793 source:c:\users\pc\desktop\facebook\f.c
+	<stdio.h>
+	<stdlib.h>
+	"f.h"
+	"ArrayList.h"
+	<string.h>
+
+1499826475 c:\users\pc\desktop\facebook\f.h
+	"ArrayList.h"
+
+1499826051 source:c:\users\pc\desktop\facebook\main.c
+	<stdio.h>
+	<stdlib.h>
+	"f.h"
+	"ArrayList.h"
+	<string.h>
+
